@@ -31,15 +31,15 @@ if (typeof Chart === "undefined") {
 
 <section class="filtros">
 
-    <select id="filtroGerencia">
+    <select id="filtroGerencia" onchange="aplicarFiltros()">
         <option value="">Todas as Gerências</option>
     </select>
 
-    <select id="filtroCidade">
+    <select id="filtroCidade" onchange="aplicarFiltros()">
         <option value="">Todas as Cidades</option>
     </select>
 
-    <select id="filtroTipo">
+    <select id="filtroTipo" onchange="aplicarFiltros()">
         <option value="">Todos os Tipos</option>
         <option value="TECNICO">Técnicos</option>
         <option value="ENGENHEIROS">Engenheiros</option>
@@ -49,6 +49,7 @@ if (typeof Chart === "undefined") {
     <input
         type="text"
         id="pesquisa"
+        oninput="aplicarFiltros()"
         placeholder="Pesquisar colaborador..."
     >
 
@@ -143,6 +144,8 @@ if (typeof Chart === "undefined") {
             <th>Cargo</th>
             <th>Nível</th>
             <th>Faixa</th>
+            <th>Início</th>
+            <th>Fim</th>
             <th>Cidade</th>
             <th>Gerência</th>
         </tr>

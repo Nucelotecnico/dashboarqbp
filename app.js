@@ -6,6 +6,7 @@ let cargoChart;
 let cidadeChart;
 let nivelChart;
 let faixaChart;
+let salarioChart;
 
 const PALETA_CORES = [
     "#0078d4", "#00b894", "#e17055", "#6c5ce7", "#fdcb6e",
@@ -243,6 +244,43 @@ function atualizarKPIs(){
     if (lidEl) lidEl.textContent = lideres.length;
 }
 
+function formatarMoeda(val){
+    if (val === undefined || val === null || String(val).trim() === "") return "-";
+    const num = parseFloat(String(val).replace(/\D/g, ""));
+    if (!isNaN(num) && num > 0) {
+        return "R$ " + num.toLocaleString("pt-BR");
+    }
+    return String(val).trim() || "-";
+}
+
+const TABELA_FAIXAS = {
+    "12": { inicio: 4548, fim: 6822 },
+    "13": { inicio: 5719, fim: 8579 },
+    "14": { inicio: 7191, fim: 10786 },
+    "15": { inicio: 9043, fim: 13564 },
+    "16": { inicio: 11371, fim: 17056 },
+    "17": { inicio: 14297, fim: 21445 }
+};
+
+function obterRotuloFaixa(faixa){
+    const f = (faixa || "").trim();
+    if (!f || f === "Não informado" || f === "UN") return "Não informado";
+
+    const ref = listaColaboradores.find(c => (c.faixa || "").trim() === f && c.inicio && c.fim);
+    if (ref) {
+        const ini = parseFloat(String(ref.inicio).replace(/\D/g, ""));
+        const fim = parseFloat(String(ref.fim).replace(/\D/g, ""));
+        if (!isNaN(ini) && !isNaN(fim) && ini > 0) {
+            return `Faixa ${f} (R$ ${ini.toLocaleString("pt-BR")} - R$ ${fim.toLocaleString("pt-BR")})`;
+        }
+    }
+    if (TABELA_FAIXAS[f]) {
+        const t = TABELA_FAIXAS[f];
+        return `Faixa ${f} (R$ ${t.inicio.toLocaleString("pt-BR")} - R$ ${t.fim.toLocaleString("pt-BR")})`;
+    }
+    return `Faixa ${f}`;
+}
+
 function atualizarTabela(){
     const tbody = document.querySelector("#colaboradores tbody");
     if (!tbody) return;
@@ -254,6 +292,8 @@ function atualizarTabela(){
             <td>${item.cargo || ""}</td>
             <td>${item.nivel || ""}</td>
             <td>${item.faixa || ""}</td>
+            <td>${formatarMoeda(item.inicio)}</td>
+            <td>${formatarMoeda(item.fim)}</td>
             <td>${item.cidade || ""}</td>
             <td>${item.gerencia || ""}</td>
         </tr>
@@ -393,191 +433,246 @@ function atualizarGraficos(){
         return;
     }
 
-    if (cargoChart) cargoChart.destroy();
-    if (cidadeChart) cidadeChart.destroy();
-    if (nivelChart) nivelChart.destroy();
-    if (faixaChart) faixaChart.destroy();
-
     // 1. Gráfico de Cargos (Eixos Invertidos: Barras Horizontais com altura dinâmica)
     const canvasCargo = document.getElementById("cargoChart");
     if (canvasCargo) {
-        const totalItensCargo = Object.keys(cargos).length;
-        // Aloca 34px por cargo para garantir espaçamento confortável dos nomes
+        const labelsCargo = Object.keys(cargos);
+        const valoresCargo = Object.values(cargos);
+        const totalItensCargo = labelsCargo.length;
         const alturaCargo = Math.max(380, totalItensCargo * 34 + 60);
+
         if (canvasCargo.parentElement) {
             canvasCargo.parentElement.style.height = `${alturaCargo}px`;
         }
 
-        cargoChart = new Chart(canvasCargo, {
-            type: "bar",
-            data: {
-                labels: Object.keys(cargos),
-                datasets: [{
-                    label: "Quantidade",
-                    data: Object.values(cargos),
-                    backgroundColor: "#0078d4",
-                    borderRadius: 4
-                }]
-            },
-            options: {
-                indexAxis: "y",
-                responsive: true,
-                maintainAspectRatio: false,
-                layout: {
-                    padding: { right: 35, top: 10, bottom: 10 }
+        if (cargoChart) {
+            cargoChart.data.labels = labelsCargo;
+            cargoChart.data.datasets[0].data = valoresCargo;
+            cargoChart.resize();
+            cargoChart.update();
+        } else {
+            cargoChart = new Chart(canvasCargo, {
+                type: "bar",
+                data: {
+                    labels: labelsCargo,
+                    datasets: [{
+                        label: "Quantidade",
+                        data: valoresCargo,
+                        backgroundColor: "#0078d4",
+                        borderRadius: 4
+                    }]
                 },
-                plugins: {
-                    legend: { display: false }
-                },
-                scales: {
-                    x: {
-                        beginAtZero: true,
-                        grace: "12%",
-                        ticks: { precision: 0 }
+                options: {
+                    indexAxis: "y",
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    layout: {
+                        padding: { right: 35, top: 10, bottom: 10 }
                     },
-                    y: {
-                        ticks: {
-                            autoSkip: false,
-                            font: { size: 12 }
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            grace: "12%",
+                            ticks: { precision: 0 }
+                        },
+                        y: {
+                            ticks: {
+                                autoSkip: false,
+                                font: { size: 12 }
+                            }
                         }
                     }
-                }
-            },
-            plugins: [pluginValoresNoTopo]
-        });
+                },
+                plugins: [pluginValoresNoTopo]
+            });
+        }
     }
 
     // 2. Gráfico de Cidades (Eixos Invertidos: Barras Horizontais com altura dinâmica)
     const canvasCidade = document.getElementById("cidadeChart");
     if (canvasCidade) {
-        const totalItensCidade = Object.keys(cidades).length;
-        // Aloca 32px por cidade para garantir legibilidade dos municípios
+        const labelsCidade = Object.keys(cidades);
+        const valoresCidade = Object.values(cidades);
+        const totalItensCidade = labelsCidade.length;
         const alturaCidade = Math.max(380, totalItensCidade * 32 + 60);
+
         if (canvasCidade.parentElement) {
             canvasCidade.parentElement.style.height = `${alturaCidade}px`;
         }
 
-        cidadeChart = new Chart(canvasCidade, {
-            type: "bar",
-            data: {
-                labels: Object.keys(cidades),
-                datasets: [{
-                    label: "Quantidade",
-                    data: Object.values(cidades),
-                    backgroundColor: "#e17055",
-                    borderRadius: 4
-                }]
-            },
-            options: {
-                indexAxis: "y",
-                responsive: true,
-                maintainAspectRatio: false,
-                layout: {
-                    padding: { right: 35, top: 10, bottom: 10 }
+        if (cidadeChart) {
+            cidadeChart.data.labels = labelsCidade;
+            cidadeChart.data.datasets[0].data = valoresCidade;
+            cidadeChart.resize();
+            cidadeChart.update();
+        } else {
+            cidadeChart = new Chart(canvasCidade, {
+                type: "bar",
+                data: {
+                    labels: labelsCidade,
+                    datasets: [{
+                        label: "Quantidade",
+                        data: valoresCidade,
+                        backgroundColor: "#e17055",
+                        borderRadius: 4
+                    }]
                 },
-                plugins: {
-                    legend: { display: false }
-                },
-                scales: {
-                    x: {
-                        beginAtZero: true,
-                        grace: "12%",
-                        ticks: { precision: 0 }
+                options: {
+                    indexAxis: "y",
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    layout: {
+                        padding: { right: 35, top: 10, bottom: 10 }
                     },
-                    y: {
-                        ticks: {
-                            autoSkip: false,
-                            font: { size: 12 }
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            grace: "12%",
+                            ticks: { precision: 0 }
+                        },
+                        y: {
+                            ticks: {
+                                autoSkip: false,
+                                font: { size: 12 }
+                            }
                         }
                     }
-                }
-            },
-            plugins: [pluginValoresNoTopo]
-        });
+                },
+                plugins: [pluginValoresNoTopo]
+            });
+        }
     }
 
     // 3. Gráfico de Níveis (Barras com Valor Absoluto e Percentual)
     const canvasNivel = document.getElementById("nivelChart");
     if (canvasNivel) {
         const labelsNivel = Object.keys(niveis);
-        nivelChart = new Chart(canvasNivel, {
-            type: "bar",
-            data: {
-                labels: labelsNivel,
-                datasets: [{
-                    label: "Quantidade",
-                    data: Object.values(niveis),
-                    backgroundColor: "#6c5ce7",
-                    borderRadius: 4
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                layout: {
-                    padding: { top: 32 }
+        const valoresNivel = Object.values(niveis);
+
+        if (nivelChart) {
+            nivelChart.data.labels = labelsNivel;
+            nivelChart.data.datasets[0].data = valoresNivel;
+            nivelChart.update();
+        } else {
+            nivelChart = new Chart(canvasNivel, {
+                type: "bar",
+                data: {
+                    labels: labelsNivel,
+                    datasets: [{
+                        label: "Quantidade",
+                        data: valoresNivel,
+                        backgroundColor: "#6c5ce7",
+                        borderRadius: 4
+                    }]
                 },
-                plugins: {
-                    legend: { display: false },
-                    valoresNoTopo: {
-                        exibirPercentual: true
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    layout: {
+                        padding: { top: 32 }
                     },
-                    tooltip: {
-                        callbacks: {
-                            label: function(context) {
-                                const val = Number(context.raw) || 0;
-                                const total = context.dataset.data.reduce((a, b) => a + (Number(b) || 0), 0);
-                                const perc = total > 0 ? ((val / total) * 100).toFixed(1).replace(".", ",") + "%" : "0%";
-                                return ` Colaboradores: ${val} (${perc})`;
+                    plugins: {
+                        legend: { display: false },
+                        valoresNoTopo: {
+                            exibirPercentual: true
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const val = Number(context.raw) || 0;
+                                    const total = context.dataset.data.reduce((a, b) => a + (Number(b) || 0), 0);
+                                    const perc = total > 0 ? ((val / total) * 100).toFixed(1).replace(".", ",") + "%" : "0%";
+                                    return ` Colaboradores: ${val} (${perc})`;
+                                }
                             }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grace: "18%",
+                            ticks: { precision: 0 }
                         }
                     }
                 },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        grace: "18%",
-                        ticks: { precision: 0 }
-                    }
-                }
-            },
-            plugins: [pluginValoresNoTopo]
-        });
+                plugins: [pluginValoresNoTopo]
+            });
+        }
     }
 
-    // 4. Gráfico de Faixas (Barras)
+    // 4. Gráfico de Faixas (Barras com Início e Fim entre parênteses no eixo X)
     const canvasFaixa = document.getElementById("faixaChart");
     if (canvasFaixa) {
-        faixaChart = new Chart(canvasFaixa, {
-            type: "bar",
-            data: {
-                labels: Object.keys(faixas),
-                datasets: [{
-                    label: "Quantidade",
-                    data: Object.values(faixas),
-                    backgroundColor: "#00b894",
-                    borderRadius: 4
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                layout: {
-                    padding: { top: 22 }
-                },
-                plugins: {
-                    legend: { display: false }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        grace: "12%",
-                        ticks: { precision: 0 }
-                    }
-                }
-            },
-            plugins: [pluginValoresNoTopo]
+        // Ordena as faixas de forma lógica e crescente
+        const chavesFaixas = Object.keys(faixas).sort((a, b) => {
+            const numA = parseInt(a) || 999;
+            const numB = parseInt(b) || 999;
+            return numA - numB;
         });
+
+        const labelsFaixa = chavesFaixas.map(f => obterRotuloFaixa(f));
+        const valoresFaixa = chavesFaixas.map(f => faixas[f]);
+
+        if (faixaChart) {
+            faixaChart.data.labels = labelsFaixa;
+            faixaChart.data.datasets[0].data = valoresFaixa;
+            faixaChart.update();
+        } else {
+            faixaChart = new Chart(canvasFaixa, {
+                type: "bar",
+                data: {
+                    labels: labelsFaixa,
+                    datasets: [{
+                        label: "Quantidade",
+                        data: valoresFaixa,
+                        backgroundColor: "#00b894",
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    layout: {
+                        padding: { top: 25 }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const val = context.raw || 0;
+                                    const total = context.dataset.data.reduce((a, b) => a + (Number(b) || 0), 0);
+                                    const perc = total > 0 ? ((val / total) * 100).toFixed(1).replace(".", ",") + "%" : "0%";
+                                    return ` Colaboradores: ${val} (${perc})`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            ticks: {
+                                font: { size: 11, weight: "600" },
+                                autoSkip: false,
+                                maxRotation: 25,
+                                minRotation: 0
+                            }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            grace: "12%",
+                            ticks: { precision: 0 }
+                        }
+                    }
+                },
+                plugins: [pluginValoresNoTopo]
+            });
+        }
     }
 }
 
