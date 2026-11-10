@@ -1,0 +1,303 @@
+Matricula	Nome	Cargo	Nivel	Faixa	Inicio	Fim	Superintendencia	Gerencia	Cidade
+55885	ALISSON GUEDES CHAGAS	Superintendente	UN				PE	*	Belo Horizonte
+53955	Marcelo Miranda	Gestor Projeto Implantação COI	UN				PE	*	Belo Horizonte
+55430	Bernardo Pains Silva	Gerente	UN				PE	NT	Belo Horizonte
+58465	RUAN PIRES VENETILLO DUTRA	Eng. Sistema Elétrico da Distribuição	Sênior	17	14297	21445	PE	NT	Belo Horizonte
+58483	THIAGO VIRGILIO DE MAGALHAES NETO	Eng. Sistema Elétrico da Distribuição	Sênior	17	14297	21445	PE	NT	Belo Horizonte
+59127	ROSILENE CRISTINA DA SILVA	Eng. Sistema Elétrico da Distribuição	Pleno	16	11371	17056	PE	NT	Belo Horizonte
+54741	VANESSA A COELHO ANDRADE	Eng. Sistema Elétrico da Distribuição	Pleno	16	11371	17056	PE	NT	Belo Horizonte
+57396	ROMULO RODRIGUES PEREIRA	Téc. Sistema Elétrico de Campo da Distribuição	3	14	7191	10786	PE	NT	Belo Horizonte
+57514	MARCOS RODRIGUES DE SOUZA	Téc. Sistema Elétrico de Campo da Distribuição	2	13	5719	8579	PE	NT	Belo Horizonte
+57849	VICTOR LUCAS FARIA	Téc. Sistema Elétrico de Campo da Distribuição	2	13	5719	8579	PE	NT	Belo Horizonte
+56721	FELIPE BESSA SOUTO DE ALMEIDA	Téc. Sistema Elétrico de Campo da Distribuição	1	12	4548	6822	PE	NT	Belo Horizonte
+57902	DOUGLAS ADOLFO SILVA	Téc. Sistema Elétrico de Campo da Distribuição	1	12	4548	6822	PE	NT	Belo Horizonte
+59619	SAVIO ROBERTO BRANDAO DIAS	Téc. Orçamento e Projeto de Redes de Distribuição	2	13	5719	8579	PE	NT	Belo Horizonte
+60165	LUIS GUSTAVO DE SOUZA RIBAS	Téc. Orçamento e Projeto de Redes de Distribuição	1	12	4548	6822	PE	NT	Belo Horizonte
+60182	RODOLFO GABRIEL MOREIRA	Téc. Orçamento e Projeto de Redes de Distribuição	1	12	4548	6822	PE	NT	Belo Horizonte
+55370	Jean Marcos Cardoso	Gerente	UN				PE	PR	Belo Horizonte
+55154	Fabio Luis Alves Juste	Eng. Sistema Elétrico da Distribuição	Sênior	17	14297	21445	PE	PR	Belo Horizonte
+55166	ROBERTO GONCALVES FARIA	Supervisor Sistema Elétrico de Distribuição	UN	14	7191	10786	PE	PR	Belo Horizonte
+50628	JULIO CESAR ROSA	Téc. Sistema Elétrico de Campo da Distribuição	3	14	7191	10786	PE	PR	Belo Horizonte
+52381	PAULO CESAR ROSARIO	Téc. Sistema Elétrico de Campo da Distribuição	3	14	7191	10786	PE	PR	Belo Horizonte
+53809	DIRCEU MIRANDA DE SOUZA JUNIOR	Téc. Sistema Elétrico de Campo da Distribuição	3	14	7191	10786	PE	PR	Belo Horizonte
+57213	FELIPE DUARTE SOARES	Téc. Sistema Elétrico de Campo da Distribuição	3	14	7191	10786	PE	PR	Belo Horizonte
+52873	MARCO TULIO NAVARRO HENRIQUES	Téc. Sistema Elétrico de Campo da Distribuição	2	13	5719	8579	PE	PR	Belo Horizonte
+56334	WELLINGTON SILVA	Téc. Sistema Elétrico de Campo da Distribuição	2	13	5719	8579	PE	PR	Belo Horizonte
+58157	VICTOR ROSSMANN FERREIRA	Téc. Sistema Elétrico de Campo da Distribuição	2	13	5719	8579	PE	PR	Belo Horizonte
+53860	CLEITON CLENER COUTO	Téc. Sistema Elétrico de Campo da Distribuição	2	13	5719	8579	PE	PR	Belo Horizonte
+60291	JULIO CESAR DA SILVA	Téc. Sistema Elétrico de Campo da Distribuição	1	12	4548	6822	PE	PR	Belo Horizonte
+57840	LINCON DANIEL COSTA	Téc. Sistema Elétrico de Campo da Distribuição	1	12	4548	6822	PE	PR	Belo Horizonte
+60305	MATHEUS FELIPE FERNANDES NETO	Téc. Sistema Elétrico de Campo da Distribuição	1	12	4548	6822	PE	PR	Belo Horizonte
+58552	HELOISA DE SOUSA VIEIRA	Téc. Orçamento e Projeto de Redes de Distribuição	2	13	5719	8579	PE	PR	Belo Horizonte
+32721	Aldo Jose Santanna	Téc. Sistema Elétrico de Campo da Distribuição	3	14	7191	10786	PE	PR	Betim
+49661	DANILO SANDRILENO ALVES	Téc. Sistema Elétrico de Campo da Distribuição	2	13	5719	8579	PE	PR	Betim
+54721	MARCIO EUSTAQUIO MENDES ROCHA	Téc. Sistema Elétrico de Campo da Distribuição	3	14	7191	10786	PE	PR	Sete Lagoas
+59461	CLAYTON RODRIGUES BATISTA	Téc. Sistema Elétrico de Campo da Distribuição	2	13	5719	8579	PE	PR	Sete Lagoas
+59957	ANDREA PEREIRA DE OLIVEIRA	Eng. Sistema Elétrico da Distribuição	Júnior	15	9043	13564	PE	PR	Uberlandia
+54062	Francislane Schwedler	Supervisor Sistema Elétrico de Distribuição	UN	14	7191	10786	PE	PR	Uberlandia
+46950	ANAVIO JOSE DA SILVA	Téc. Sistema Elétrico de Campo da Distribuição	3	14	7191	10786	PE	PR	Uberlandia
+50046	ERNANI MARTINS COSTA	Téc. Sistema Elétrico de Campo da Distribuição	3	14	7191	10786	PE	PR	Uberlandia
+52119	MARCOS ANTONIO MARIANO	Téc. Sistema Elétrico de Campo da Distribuição	3	14	7191	10786	PE	PR	Uberlandia
+55574	ROBERTO PIMENTA DE REZENDE	Téc. Sistema Elétrico de Campo da Distribuição	3	14	7191	10786	PE	PR	Uberlandia
+49111	JOSE JACINTO SILVA JUNIOR	Téc. Sistema Elétrico de Campo da Distribuição	2	13	5719	8579	PE	PR	Uberlandia
+47358	ALEX SHANDER RODRIGUES DE FREITAS 	Téc. Orçamento e Projeto de Redes de Distribuição	3	14	7191	10786	PE	PR	Uberlandia
+48378	ELCIMAR DONISETE DE OLIVEIRA	Téc. Orçamento e Projeto de Redes de Distribuição	3	14	7191	10786	PE	PR	Uberlandia
+45079	EDIMILSON ALVES DE OLIVEIRA	Téc. Orçamento e Projeto de Redes de Distribuição	2	13	5719	8579	PE	PR	Uberlandia
+53604	ALEX SANDER RUAS FREIRE	Téc. Orçamento e Projeto de Redes de Distribuição	2	13	5719	8579	PE	PR	Uberlandia
+53628	LUCIANO PAULO DE ANDRADE	Téc. Orçamento e Projeto de Redes de Distribuição	2	13	5719	8579	PE	PR	Uberlandia
+54825	JAQUELINE GONTIJO RIBEIRO	Téc. Orçamento e Projeto de Redes de Distribuição	2	13	5719	8579	PE	PR	Uberlandia
+47286	ANTONIO JUNIO LOCATTELLI 	Téc. Administrativo	3	12	4548	6822	PE	PR	Uberlandia
+54948	JANDER GONCALVES FARIA	Eng. Sistema Elétrico da Distribuição	Sênior	17	14297	21445	PE	PR	Governador Valadares
+55019	CLEITON SOARES OLIVEIRA	Supervisor Sistema Elétrico de Distribuição	UN	14	7191	10786	PE	PR	Governador Valadares
+47738	CLAUDIO CALDAS	Téc. Sistema Elétrico de Campo da Distribuição	2	13	5719	8579	PE	PR	Governador Valadares
+53933	BRUNO MARKUS NUNES MIRANDA	Téc. Sistema Elétrico de Campo da Distribuição	2	13	5719	8579	PE	PR	Governador Valadares
+55257	EDEMILSON CORREA DOS SANTOS	Téc. Sistema Elétrico de Campo da Distribuição	2	13	5719	8579	PE	PR	Governador Valadares
+58489	ALAN DE OLIVEIRA BRUM	Téc. Sistema Elétrico de Campo da Distribuição	2	13	5719	8579	PE	PR	Governador Valadares
+58469	RICARDO VIOL DOS SANTOS	Eng. Sistema Elétrico da Distribuição	Pleno	16	11371	17056	PE	PR	Juiz de Fora
+55511	Mozart Ferreira Braga Junior	Supervisor Sistema Elétrico de Distribuição	UN	14	7191	10786	PE	PR	Juiz de Fora
+56110	NILSON DA SILVA PINTO ALMEIDA	Téc. Sistema Elétrico de Campo da Distribuição	2	13	5719	8579	PE	PR	Juiz de Fora
+57255	LEONARDO DE ARAUJO	Téc. Sistema Elétrico de Campo da Distribuição	2	13	5719	8579	PE	PR	Juiz de Fora
+58518	MARGER WANDERLEY BARBOSA	Téc. Sistema Elétrico de Campo da Distribuição	2	13	5719	8579	PE	PR	Juiz de Fora
+60503	BRENO MATOS SIMAS	Téc. Sistema Elétrico de Campo da Distribuição	1	12	4548	6822	PE	PR	Juiz de Fora
+55519	PAULO ROBERTO DIAS DA SILVA	Téc. Orçamento e Projeto de Redes de Distribuição	2	13	5719	8579	PE	PR	Juiz de Fora
+60273	GUILHERME HENRIQUE GONCALVES	Téc. Orçamento e Projeto de Redes de Distribuição	1	12	4548	6822	PE	PR	Juiz de Fora
+55466	HERBERT ANDRE NASCIMENTO	Eng. Sistema Elétrico da Distribuição	Sênior	17	14297	21445	PE	PR	Montes Claros
+52881	VANDERLEI LOPES BAHIA	Supervisor Sistema Elétrico de Distribuição	UN	14	7191	10786	PE	PR	Montes Claros
+54789	CARLOS EDUARDO SILVA	Téc. Sistema Elétrico de Campo da Distribuição	3	14	7191	10786	PE	PR	Montes Claros
+55482	KELY FABIANA DE ASSIS	Téc. Sistema Elétrico de Campo da Distribuição	3	14	7191	10786	PE	PR	Montes Claros
+55537	VALDIMAR GERALDO SILVA	Téc. Sistema Elétrico de Campo da Distribuição	3	14	7191	10786	PE	PR	Montes Claros
+52664	ALEXSANDRO OLIVEIRA BALSAMAO	Téc. Sistema Elétrico de Campo da Distribuição	2	13	5719	8579	PE	PR	Montes Claros
+58612	JOSE ALVES CAFE FILHO	Téc. Sistema Elétrico de Campo da Distribuição	2	13	5719	8579	PE	PR	Montes Claros
+59124	PEDRO PAULO SOARES SANTOS	Téc. Sistema Elétrico de Campo da Distribuição	2	13	5719	8579	PE	PR	Montes Claros
+60243	BIANCA DE JESUS MENDES	Téc. Sistema Elétrico de Campo da Distribuição	1	12	4548	6822	PE	PR	Montes Claros
+55111	Ulisses Mauricio Guimarães Garcias	Eng. Sistema Elétrico da Distribuição	Sênior	17	14297	21445	PE	PR	Divinopolis
+56382	EDUARDO LUIZ DA SILVA	Supervisor Sistema Elétrico de Distribuição	UN	14	7191	10786	PE	PR	Divinopolis
+51162	RENATO SANTOS	Téc. Sistema Elétrico de Campo da Distribuição	3	14	7191	10786	PE	PR	Divinópolis
+53308	JUSCELINO CARLOS DE MELO	Téc. Sistema Elétrico de Campo da Distribuição	3	14	7191	10786	PE	PR	Divinópolis
+55513	NILTON SANTOS	Téc. Sistema Elétrico de Campo da Distribuição	3	14	7191	10786	PE	PR	Divinópolis
+56142	WILTON ALVES DE ANDRADE	Téc. Sistema Elétrico de Campo da Distribuição	2	13	5719	8579	PE	PR	Divinópolis
+54019	WELLINGTON LUIS FERNANDES DE OLIVEIRA	Téc. Orçamento e Projeto de Redes de Distribuição	2	13	5719	8579	PE	PR	Divinópolis
+57579	ODILON FERREIRA DA SILVA	Téc. Administrativo	3	12	4548	6822	PE	PR	Divinópolis
+58622	PAULO GEOVANE DE PAULA REIS	Téc. Sistema Elétrico de Campo da Distribuição	2	13	5719	8579	PE	PR	Passos
+53997	Jose Alexandre Nascimento	Supervisor Sistema Elétrico de Distribuição	UN	14	7191	10786	PE	PR	Varginha
+53061	PAULO AFFONSO CUBBI	Téc. Sistema Elétrico de Campo da Distribuição	3	14	7191	10786	PE	PR	Varginha
+56094	LUIZ GUSTAVO CAMARGO PINTO CORREA	Téc. Sistema Elétrico de Campo da Distribuição	3	14	7191	10786	PE	PR	Varginha
+40012	MARCO ANTONIO DE SOUZA MOURA	Téc. Sistema Elétrico de Campo da Distribuição	3	14	7191	10786	PE	PR	Pouso Alegre
+48399	JOSE ANTONIO CIRILO	Téc. Sistema Elétrico de Campo da Distribuição	3	14	7191	10786	PE	PR	Três Corações
+54820	Hernane Salvador Braga	Gerente	UN				PE	PE	Belo Horizonte
+46919	PAULO SERGIO SILVA MENDES	Eng. Gestão de Ativos da Distribuição	Sênior	17	14297	21445	PE	PE	Belo Horizonte
+52346	STEFANO VALENTE MENICUCCI	Eng. Gestão de Ativos da Distribuição	Sênior	17	14297	21445	PE	PE	Belo Horizonte
+53618	MAXWELL CORDEIRO SANTOS	Eng. Gestão de Ativos da Distribuição	Sênior	17	14297	21445	PE	PE	Belo Horizonte
+55373	JORDAN VIRIATO DOS SANTOS	Eng. Gestão de Ativos da Distribuição	Sênior	17	14297	21445	PE	PE	Belo Horizonte
+56312	RODRIGO LEONARDO VALADAO	Eng. Gestão de Ativos da Distribuição	Sênior	17	14297	21445	PE	PE	Belo Horizonte
+56571	SERGIO DOS ANJOS ROSA	Eng. Gestão de Ativos da Distribuição	Sênior	17	14297	21445	PE	PE	Belo Horizonte
+57247	JULIANA SOUZA NUNES	Eng. Gestão de Ativos da Distribuição	Sênior	17	14297	21445	PE	PE	Belo Horizonte
+59044	CESAR TERROLA MARTINS FERREIRA	Eng. Gestão de Ativos da Distribuição	Pleno	16	11371	17056	PE	PE	Belo Horizonte
+59092	VITOR FONSECA BARBOSA	Eng. Gestão de Ativos da Distribuição	Pleno	16	11371	17056	PE	PE	Belo Horizonte
+59768	KEVIN MAZALA DE SOUZA DIAS	Eng. Gestão de Ativos da Distribuição	Júnior	15	9043	13564	PE	PE	Belo Horizonte
+60039	MATHEUS GOMES FRANCA	Eng. Gestão de Ativos da Distribuição	Júnior	15	9043	13564	PE	PE	Belo Horizonte
+60651	ALYSSON DANIEL PEREIRA DE MEDEIROS	Eng. Gestão de Ativos da Distribuição	Júnior	15	9043	13564	PE	PE	Belo Horizonte
+60682	JOAO PAULO MARQUES TAVARES	Eng. Gestão de Ativos da Distribuição	Júnior	15	9043	13564	PE	PE	Belo Horizonte
+60759	Mauricio Campos Junqueira	Eng. Gestão de Ativos da Distribuição	Júnior	15	9043	13564	PE	PE	Belo Horizonte
+61032	THIAGO DOS REIS TORRES	Eng. Gestão de Ativos da Distribuição	Júnior	15	9043	13564	PE	PE	Belo Horizonte
+58961	CINTHIA TAMIRIS FELIX DA SILVA	Téc. Gestão de Ativos da Distribuição	2	13	5719	8579	PE	PE	Belo Horizonte
+59554	CLEISSON RODRIGUES CARVALHO	Téc. Gestão de Ativos da Distribuição	1	12	4548	6822	PE	PE	Belo Horizonte
+59600	MARIA EDUARDA MACEDO RODRIGUES	Téc. Gestão de Ativos da Distribuição	1	12	4548	6822	PE	PE	Belo Horizonte
+59974	CLECIO RODRIGUES DE OLIVEIRA	Téc. Gestão de Ativos da Distribuição	1	12	4548	6822	PE	PE	Belo Horizonte
+59990	FREDERICO FARIA CASSIMIRO	Téc. Gestão de Ativos da Distribuição	1	12	4548	6822	PE	PE	Belo Horizonte
+59995	GUILHERME HENRIQUE SANTANA MARTINS	Téc. Gestão de Ativos da Distribuição	1	12	4548	6822	PE	PE	Belo Horizonte
+60004	IZABELA CRISTINA TURBINO DUTRA	Téc. Gestão de Ativos da Distribuição	1	12	4548	6822	PE	PE	Belo Horizonte
+60754	Luiz Otavio Alves De Souza	Téc. Gestão de Ativos da Distribuição	1	12	4548	6822	PE	PE	Belo Horizonte
+56040	DIEGO RAFAEL DE OLIVEIRA SERVULO	Supervisor de Gestão de Ativos da Distribuição	UN	16	11371	17056	PE	PE	Uberlândia
+55460	GEOVA BATISTA DE OLIVEIRA	Téc. Gestão de Ativos da Distribuição	3	14	7191	10786	PE	PE	Uberlândia
+56330	WANDERLEI PEREIRA	Téc. Gestão de Ativos da Distribuição	3	14	7191	10786	PE	PE	Uberlândia
+58507	FELIPE GOMES DE SOUZA ARAUJO	Téc. Gestão de Ativos da Distribuição	3	14	7191	10786	PE	PE	Montes Claros
+49260	JOSE CARLOS MENDES	Téc. Gestão de Ativos da Distribuição	3	14	7191	10786	PE	PE	Varginha
+49154	Wagner A Araujo Veloso	Gerente	UN				PE	ES	Belo Horizonte
+54532	LEONEL CAMPIDELI VASCONCELOS 	Eng. Sistema Elétrico da Distribuição	Sênior	17	14297	21445	PE	ES	Belo Horizonte
+40808	ROBERTO CARLOS DE SOUZA 	Eng. Gestão de Ativos da Distribuição	Sênior	17	14297	21445	PE	ES	Belo Horizonte
+52468	PAULO SERGIO SILVA 	Eng. Gestão de Ativos da Distribuição	Sênior	17	14297	21445	PE	ES	Belo Horizonte
+52944	EDSON NUNES DE MORAIS JUNIOR 	Eng. Gestão de Ativos da Distribuição	Sênior	17	14297	21445	PE	ES	Belo Horizonte
+53609	ANDERSON DE FIGUEIREDO 	Eng. Gestão de Ativos da Distribuição	Sênior	17	14297	21445	PE	ES	Belo Horizonte
+55214	PABLO SENNA OLIVEIRA 	Eng. Gestão de Ativos da Distribuição	Sênior	17	14297	21445	PE	ES	Belo Horizonte
+55505	MARISA LAGES MURTA 	Eng. Gestão de Ativos da Distribuição	Sênior	17	14297	21445	PE	ES	Belo Horizonte
+55508	MAURISSONE FERREIRA GUIMARAES 	Eng. Gestão de Ativos da Distribuição	Sênior	17	14297	21445	PE	ES	Belo Horizonte
+55559	FRANCIS ALBERT FONSECA NASCIMENTO 	Eng. Gestão de Ativos da Distribuição	Sênior	17	14297	21445	PE	ES	Belo Horizonte
+55598	GILDECI SOUZA DE AGUILAR 	Eng. Gestão de Ativos da Distribuição	Sênior	17	14297	21445	PE	ES	Belo Horizonte
+57014	DANILO DERICK SILVA ALVES 	Eng. Gestão de Ativos da Distribuição	Sênior	17	14297	21445	PE	ES	Belo Horizonte
+57037	FERNANDO MOREIRA RIBEIRO 	Eng. Gestão de Ativos da Distribuição	Sênior	17	14297	21445	PE	ES	Belo Horizonte
+54259	DANILO CAMPOS LOPES 	Eng. Gestão de Ativos da Distribuição	Pleno	16	11371	17056	PE	ES	Belo Horizonte
+54354	MARCIO SOARES TEIXEIRA COSTA 	Eng. Gestão de Ativos da Distribuição	Pleno	16	11371	17056	PE	ES	Belo Horizonte
+55873	MOISES DE MELO DUARTE 	Eng. Gestão de Ativos da Distribuição	Pleno	16	11371	17056	PE	ES	Belo Horizonte
+57164	WASHINGTON RODRIGUES DA SILVA 	Eng. Gestão de Ativos da Distribuição	Pleno	16	11371	17056	PE	ES	Belo Horizonte
+58474	DARLAN JUNIOR GONCALVES 	Eng. Gestão de Ativos da Distribuição	Pleno	16	11371	17056	PE	ES	Belo Horizonte
+59058	HENRIQUE PARREIRAS COUTO 	Eng. Gestão de Ativos da Distribuição	Pleno	16	11371	17056	PE	ES	Belo Horizonte
+59059	HUGO LEONARDO MAGALHAES DE REZENDE 	Eng. Gestão de Ativos da Distribuição	Pleno	16	11371	17056	PE	ES	Belo Horizonte
+59078	PEDRO HENRIQUE ALVES NAZARETH 	Eng. Gestão de Ativos da Distribuição	Pleno	16	11371	17056	PE	ES	Belo Horizonte
+59123	PAULO SERGIO PEREIRA MENDES 	Eng. Gestão de Ativos da Distribuição	Pleno	16	11371	17056	PE	ES	Belo Horizonte
+59781	MATEUS BASILIO KNUTZEN 	Eng. Gestão de Ativos da Distribuição	Júnior	15	9043	13564	PE	ES	Belo Horizonte
+57080	LUCAS ANTONIO CALIXTO DE OLIVEIRA 	Eng. Estratégia Expansão e Manutenção AT Distribuição	Pleno	16	11371	17056	PE	ES	Belo Horizonte
+60132	GUSTAVO VIANA COSTA TEIXEIRA 	Eng. Estratégia Expansão e Manutenção AT Distribuição	Júnior	15	9043	13564	PE	ES	Belo Horizonte
+55377	JULIANA DO COUTO MATILDE 	Analista de Operação	Sênior	17	14297	21445	PE	ES	Belo Horizonte
+56196	NATALIE COSTA ARAUJO 	Analista de Operação	Sênior	17	14297	21445	PE	ES	Belo Horizonte
+55008	ALLAN HENRIQUE GOMES 	Téc. Manutenção em Linhas Aéreas de Distribuição	3	14	7191	10786	PE	ES	Belo Horizonte
+52865	GONCALO VIEIRA DOS SANTOS 	Téc. Sistema Elétrico de Campo da Distribuição	3	14	7191	10786	PE	ES	Belo Horizonte
+53642	RICARDO CARDOSO DOS SANTOS 	Téc. Sistema Elétrico de Campo da Distribuição	3	14	7191	10786	PE	ES	Belo Horizonte
+53845	TATIANA MILENE NETO 	Téc. Sistema Elétrico de Campo da Distribuição	3	14	7191	10786	PE	ES	Belo Horizonte
+55090	SUELLEN PAULA VELHO MORENO FONSECA 	Téc. Sistema Elétrico de Campo da Distribuição	3	14	7191	10786	PE	ES	Belo Horizonte
+58146	SUELEM TAMIRES SIMAO ABREU 	Téc. Ativos da Distribuição	3	14	7191	10786	PE	ES	Belo Horizonte
+58599	DIVINO NUNES DE SOUZA 	Téc. Ativos da Distribuição	2	13	5719	8579	PE	ES	Belo Horizonte
+58630	VINÍCIUS AMORIM BOTELHO 	Téc. Ativos da Distribuição	2	13	5719	8579	PE	ES	Belo Horizonte
+58295	GUILHERME PERDIGAO ROCHA 	Téc. Gestão de Ativos da Distribuição	3	14	7191	10786	PE	ES	Belo Horizonte
+57440	CAROLINE ALVES DA CUNHA 	Téc. Gestão de Ativos da Distribuição	1	12	4548	6822	PE	ES	Belo Horizonte
+60168	MARCOS PAULO BARRETO DE ARAUJO 	Téc. Gestão de Ativos da Distribuição	1	12	4548	6822	PE	ES	Belo Horizonte
+56386	FABIO DE OLIVEIRA LANA 	Téc. Sistema Elétrico de Campo da Distribuição	3	14	7191	10786	PE	ES	Contagem
+57575	LUCAS TESTONI COSTA BALSANTE 	Téc. Sistema Elétrico de Campo da Distribuição	2	13	5719	8579	PE	ES	Contagem
+52134	LUIS AUGUSTO VIEIRA 	Téc. Ativos da Distribuição	3	14	7191	10786	PE	ES	Contagem
+53398	RONE ELI DE SOUSA 	Téc. Ativos da Distribuição	3	14	7191	10786	PE	ES	Contagem
+54519	ALMIR RODRIGUES SIMOES 	Téc. Ativos da Distribuição	3	14	7191	10786	PE	ES	Contagem
+54792	CASSIA JANUARIA DE MORAIS 	Téc. Ativos da Distribuição	3	14	7191	10786	PE	ES	Contagem
+55000	RONALDO DOS SANTOS CANDIDO 	Téc. Ativos da Distribuição	3	14	7191	10786	PE	ES	Contagem
+55451	ELERSON RIBEIRO LESSA 	Téc. Ativos da Distribuição	3	14	7191	10786	PE	ES	Contagem
+55457	FERNANDO CAMARANO 	Téc. Ativos da Distribuição	3	14	7191	10786	PE	ES	Contagem
+55472	JACKSON SOARES GOMES 	Téc. Ativos da Distribuição	3	14	7191	10786	PE	ES	Contagem
+56458	RODRIGO LOPES EVANGELISTA 	Téc. Ativos da Distribuição	3	14	7191	10786	PE	ES	Contagem
+58287	FERNANDO HENRIQUE DE OLIVEIRA 	Téc. Ativos da Distribuição	3	14	7191	10786	PE	ES	Contagem
+57633	MATTEUS NUNES VALGAS 	Téc. Ativos da Distribuição	2	13	5719	8579	PE	ES	Contagem
+57923	GLAYSON DOS SANTOS CORNELIO 	Téc. Ativos da Distribuição	2	13	5719	8579	PE	ES	Contagem
+58502	DOUGLAS VIANA MOREIRA 	Téc. Ativos da Distribuição	2	13	5719	8579	PE	ES	Contagem
+58550	GUSTAVO HENRIQUE ALVES SILVA 	Téc. Ativos da Distribuição	2	13	5719	8579	PE	ES	Contagem
+59996	GUSTAVO HENRIQUE DE PAULA SOUSA 	Téc. Ativos da Distribuição	2	13	5719	8579	PE	ES	Contagem
+60259	DELMI RODRIGUES CARNEIRO 	Téc. Ativos da Distribuição	1	12	4548	6822	PE	ES	Contagem
+55562	Flavio Henrique Martins Vieira	Gerente	UN				PE	PM	Belo Horizonte
+45183	ALEXANDRE SALES BRAZ 	Eng. Gestão de Ativos da Distribuição	Sênior	17	14297	21445	PE	PM	Belo Horizonte
+50791	AMANTINO ALVES DA COSTA 	Eng. Gestão de Ativos da Distribuição	Sênior	17	14297	21445	PE	PM	Belo Horizonte
+53081	JOSE AILTON EUGENIO SOBRINHO 	Eng. Gestão de Ativos da Distribuição	Sênior	17	14297	21445	PE	PM	Belo Horizonte
+53703	WHESTER JUBERT DE ARAUJO 	Eng. Gestão de Ativos da Distribuição	Sênior	17	14297	21445	PE	PM	Belo Horizonte
+53704	DIVAN ALVES TAVARES 	Eng. Gestão de Ativos da Distribuição	Sênior	17	14297	21445	PE	PM	Belo Horizonte
+55425	ANDERSON VANDER CARVALHO DOS SANTOS	Eng. Gestão de Ativos da Distribuição	Sênior	17	14297	21445	PE	PM	Belo Horizonte
+55541	WARLEI OLIVEIRA SILVA 	Eng. Gestão de Ativos da Distribuição	Sênior	17	14297	21445	PE	PM	Belo Horizonte
+55630	THAIS FREIRE DE CASTRO 	Eng. Gestão de Ativos da Distribuição	Sênior	17	14297	21445	PE	PM	Belo Horizonte
+56209	RENAN TAUFNER ALTOE 	Eng. Gestão de Ativos da Distribuição	Sênior	17	14297	21445	PE	PM	Belo Horizonte
+56543	HENRIQUE EDUARDO PINTO DINIZ 	Eng. Gestão de Ativos da Distribuição	Sênior	17	14297	21445	PE	PM	Belo Horizonte
+57089	MARCELO DE CASTRO ALVES 	Eng. Gestão de Ativos da Distribuição	Sênior	17	14297	21445	PE	PM	Belo Horizonte
+57189	CASSIO BRUNO DE ARAUJO 	Eng. Gestão de Ativos da Distribuição	Sênior	17	14297	21445	PE	PM	Belo Horizonte
+52918	JOAO ARISTIDES MACHADO 	Eng. Gestão de Ativos da Distribuição	Pleno	16	11371	17056	PE	PM	Belo Horizonte
+54653	EMERSON JOSE HERMISDORFF 	Eng. Gestão de Ativos da Distribuição	Pleno	16	11371	17056	PE	PM	Belo Horizonte
+55309	SERGIO ALAN QUADROS 	Eng. Gestão de Ativos da Distribuição	Pleno	16	11371	17056	PE	PM	Belo Horizonte
+57126	RAQUEL GLAUCIA FREITAS DA SILVA 	Eng. Gestão de Ativos da Distribuição	Pleno	16	11371	17056	PE	PM	Belo Horizonte
+57296	THIAGO DE LIMA MUNIZ 	Eng. Gestão de Ativos da Distribuição	Pleno	16	11371	17056	PE	PM	Belo Horizonte
+57363	RAFAEL GOMES NOGUEIRA 	Eng. Gestão de Ativos da Distribuição	Pleno	16	11371	17056	PE	PM	Belo Horizonte
+58476	FERNANDO HENRIQUE DIAS MARTINS 	Eng. Gestão de Ativos da Distribuição	Pleno	16	11371	17056	PE	PM	Belo Horizonte
+58485	VITOR ROCHA BRAZ 	Eng. Gestão de Ativos da Distribuição	Pleno	16	11371	17056	PE	PM	Belo Horizonte
+59054	GABRIELA MAIA CAMARGO 	Eng. Gestão de Ativos da Distribuição	Pleno	16	11371	17056	PE	PM	Belo Horizonte
+59108	JESSICA CASSIA ANDRADE DIAS 	Eng. Gestão de Ativos da Distribuição	Pleno	16	11371	17056	PE	PM	Belo Horizonte
+59045	CHARLES MESQUITA CORDEIRO 	Eng. Gestão de Ativos da Distribuição	Júnior	15	9043	13564	PE	PM	Belo Horizonte
+59050	DIEGO RODRIGUES MOTA 	Eng. Gestão de Ativos da Distribuição	Júnior	15	9043	13564	PE	PM	Belo Horizonte
+59100	FELIPE BRASILEIRO MARQUES 	Eng. Gestão de Ativos da Distribuição	Júnior	15	9043	13564	PE	PM	Belo Horizonte
+59743	FABRICIO NUNES PAIVA 	Eng. Gestão de Ativos da Distribuição	Júnior	15	9043	13564	PE	PM	Belo Horizonte
+60278	HENRIQUE AUGUSTO FONSECA NOGUEIRA 	Eng. Gestão de Ativos da Distribuição	Júnior	15	9043	13564	PE	PM	Belo Horizonte
+54879	BRUNO WENDELL MARTINS DE SOUZA 	Téc. Manutenção em Linhas Aéreas de Distribuição	3	14	7191	10786	PE	PM	Belo Horizonte
+57258	LUCAS ALVES MARTINS 	Téc. Manutenção em Subestações da Distribuição	3	14	7191	10786	PE	PM	Belo Horizonte
+57316	IAGO VIANA LUSTOSA 	Téc. Manutenção em Subestações da Distribuição	2	13	5719	8579	PE	PM	Belo Horizonte
+58452	RAFAEL DE CARVALHO SILVA 	Téc. Manutenção em Subestações da Distribuição	2	13	5719	8579	PE	PM	Belo Horizonte
+52382	ANDERSON LUIZ DE SOUZA LIMA 	Téc. Sistema Elétrico de Campo da Distribuição	3	14	7191	10786	PE	PM	Belo Horizonte
+57884	BRUNO BATISTA RAMOS PEDROSA 	Téc. Sistema Elétrico de Campo da Distribuição	2	13	5719	8579	PE	PM	Belo Horizonte
+53651	LEANDRO APARECIDO BORGES DE OLIVEIRA	Téc. Ativos da Distribuição	3	14	7191	10786	PE	PM	Belo Horizonte
+53862	DIRCEU VENANCIO DOS SANTOS JUNIOR 	Téc. Ativos da Distribuição	3	14	7191	10786	PE	PM	Belo Horizonte
+55325	WANER LUIS DA SILVA SANTOS 	Téc. Ativos da Distribuição	3	14	7191	10786	PE	PM	Belo Horizonte
+55147	ANDRE GUILHERME DE ARAUJO COMPART 	Téc. Ativos da Distribuição	3	14	7191	10786	PE	PM	Belo Horizonte
+57995	TALES HENRIQUE FARIA FERNANDES 	Téc. Ativos da Distribuição	3	14	7191	10786	PE	PM	Belo Horizonte
+58343	RICARDO ARAUJO NONATO 	Téc. Ativos da Distribuição	2	13	5719	8579	PE	PM	Belo Horizonte
+58338	PAULO HENRIQUE SOARES DE SOUZA 	Téc. Ativos da Distribuição	2	13	5719	8579	PE	PM	Belo Horizonte
+60544	MARCOS DOS SANTOS SOUSA 	Téc. Ativos da Distribuição	1	12	4548	6822	PE	PM	Belo Horizonte
+46424	LEO DA SILVA RODRIGUES 	Téc. Gestão de Ativos da Distribuição	3	14	7191	10786	PE	PM	Belo Horizonte
+50539	ADILTON JUAREZ BARBOSA CUNHA 	Téc. Gestão de Ativos da Distribuição	3	14	7191	10786	PE	PM	Belo Horizonte
+57072	LEIDIANE DE OLIVEIRA SILVA 	Téc. Gestão de Ativos da Distribuição	3	14	7191	10786	PE	PM	Belo Horizonte
+57205	DIOGO MARTINS JUSTINO 	Téc. Gestão de Ativos da Distribuição	3	14	7191	10786	PE	PM	Belo Horizonte
+57508	LUCIO DE OLIVEIRA LEITE 	Téc. Gestão de Ativos da Distribuição	2	13	5719	8579	PE	PM	Belo Horizonte
+58345	RODRIGO MOREIRA COSTA 	Téc. Gestão de Ativos da Distribuição	3	14	7191	10786	PE	PM	Belo Horizonte
+56984	ANA CAROLINA SILVA TORRES 	Téc. Gestão de Ativos da Distribuição	2	13	5719	8579	PE	PM	Belo Horizonte
+58304	JADER SANTOS VALVERDE 	Téc. Gestão de Ativos da Distribuição	2	13	5719	8579	PE	PM	Belo Horizonte
+58307	JENIFFER CRISTIANE DO NASCIMENTO 	Téc. Gestão de Ativos da Distribuição	2	13	5719	8579	PE	PM	Belo Horizonte
+58332	MARIA JULIA ALMEIDA SANTOS 	Téc. Gestão de Ativos da Distribuição	2	13	5719	8579	PE	PM	Belo Horizonte
+58339	PAULO JOSÉ ALVES DE SOUZA 	Téc. Gestão de Ativos da Distribuição	2	13	5719	8579	PE	PM	Belo Horizonte
+58356	VICTOR MARTINS 	Téc. Gestão de Ativos da Distribuição	2	13	5719	8579	PE	PM	Belo Horizonte
+59613	RAYLSON LENO DE JESUS SILVA 	Téc. Gestão de Ativos da Distribuição	2	13	5719	8579	PE	PM	Belo Horizonte
+56916	ANDRESSA MARA LISBOA RAMOS 	Téc. Gestão de Ativos da Distribuição	1	12	4548	6822	PE	PM	Belo Horizonte
+59552	CARLOS AUGUSTO SERRANO 	Téc. Gestão de Ativos da Distribuição	1	12	4548	6822	PE	PM	Belo Horizonte
+59560	FELIPE FERNANDES SILVA 	Téc. Gestão de Ativos da Distribuição	1	12	4548	6822	PE	PM	Belo Horizonte
+59578	IGOR LEITE LEBRET SILVA 	Téc. Gestão de Ativos da Distribuição	1	12	4548	6822	PE	PM	Belo Horizonte
+59598	MARCIO NEPOMUCENO DE OLIVEIRA 	Téc. Gestão de Ativos da Distribuição	1	12	4548	6822	PE	PM	Belo Horizonte
+59604	MATHEUS DE JESUS GALLO SANTOS 	Téc. Gestão de Ativos da Distribuição	1	12	4548	6822	PE	PM	Belo Horizonte
+59621	ULISSES RODRIGUES ALVES E SILVA 	Téc. Gestão de Ativos da Distribuição	1	12	4548	6822	PE	PM	Belo Horizonte
+59623	VANESSA SALLES ARAUJO 	Téc. Gestão de Ativos da Distribuição	1	12	4548	6822	PE	PM	Belo Horizonte
+59946	ADRIANO FORTINI DOS SANTOS FILHO 	Téc. Gestão de Ativos da Distribuição	1	12	4548	6822	PE	PM	Belo Horizonte
+60021	LETICIA SILVA DE ALMEIDA 	Téc. Gestão de Ativos da Distribuição	1	12	4548	6822	PE	PM	Belo Horizonte
+60025	LUIZ FILIPE ALVES LELIS 	Téc. Gestão de Ativos da Distribuição	1	12	4548	6822	PE	PM	Belo Horizonte
+60139	JEFERSON JOSE DA SILVA GONCALVES 	Téc. Gestão de Ativos da Distribuição	1	12	4548	6822	PE	PM	Belo Horizonte
+57475	GISLEINE TEIXEIRA DE OLIVEIRA FRANCO	Téc. Administrativo	3	12	4548	6822	PE	PM	Belo Horizonte
+58257	ALOISIO SILVA SANTOS	Téc. Sup. Gestão Manutenção AT	2	13	5719	8579	PE	PM	Sete Lagoas
+52665	MARCO AURELIO DA SILVA FERNEDA 	Téc. Manutenção em Subestações da Distribuição	3	14	7191	10786	PE	PM	Uberlândia
+54814	FLAVIA ALBERNAZ BARBOSA RESENDE 	Téc. Manutenção em Subestações da Distribuição	3	14	7191	10786	PE	PM	Uberlândia
+53143	ALEXSANDER SALA JOU DE SOUZA 	Téc. Sistema Elétrico de Campo da Distribuição	2	13	5719	8579	PE	PM	Uberlândia
+47767	ASTOLPHO JOSE PIRES NETO 	Téc. Sistema Elétrico de Campo da Distribuição	1	12	4548	6822	PE	PM	Uberaba
+50639	VALTER FERREIRA DE SOUZA 	Téc. Sistema Elétrico de Campo da Distribuição	3	14	7191	10786	PE	PM	Ipatinga
+58455	SINEZIO ROSA RODRIGUES 	Téc. Manutenção em Linhas Aéreas de Distribuição	1	12	4548	6822	PE	PM	Caratinga
+53172	RAILTON CALIMAN SANTOS 	Téc. Sistema Elétrico de Campo da Distribuição	3	14	7191	10786	PE	PM	Almenara
+57159	VITOR BERNARDES TEIXEIRA 	Eng. Expansão e Manutenção AT Distribuição	Sênior	17	14297	21445	PE	PM	Juiz de Fora
+55484	LAUDO HIROMASA ARAKI 	Téc. Manutenção em Subestações da Distribuição	3	14	7191	10786	PE	PM	Juiz de Fora
+52970	FABIANO RIBEIRO BATISTA 	Téc. Ativos da Distribuição	3	14	7191	10786	PE	PM	Juiz de Fora
+56565	VIRGILIO VIEIRA LIMA 	Téc. Sistema Elétrico de Campo da Distribuição	2	13	5719	8579	PE	PM	Conselheiro Lafaiete
+53215	LEANDRO MACIEL DIAS 	Téc. Sup. Gestão Manutenção AT	3	14	7191	10786	PE	PM	Montes Claros
+53179	MARIA VANUSA FONSECA 	Téc. Manutenção em Subestações da Distribuição	3	14	7191	10786	PE	PM	Montes Claros
+57639	ANA MARIA DE SOUZA REIS SILVA 	Téc. Ativos da Distribuição	2	13	5719	8579	PE	PM	Montes Claros
+56116	RAIMUNDO PINHEIRO DE SOUSA FILHO 	Téc. Sistema Elétrico de Campo da Distribuição	3	14	7191	10786	PE	PM	Unaí
+50662	WESLLEY SILVIO PERA 	Téc. Manutenção em Subestações da Distribuição	3	14	7191	10786	PE	PM	Divinópolis
+52433	MAURICIO PEREIRA SANTOS 	Téc. Sistema Elétrico de Campo da Distribuição	2	13	5719	8579	PE	PM	Divinópolis
+52921	LUIZ HENRIQUE TOLEDO FERNANDES 	Téc. Gestão de Ativos da Distribuição	3	14	7191	10786	PE	PM	Divinópolis
+58637	ANTON OLIVERI MEDEIROS CARVALHO LIMA	Téc. Sistema Elétrico de Campo da Distribuição	2	13	5719	8579	PE	PM	Passos
+53216	HELTON IZIDIO LOPES 	Téc. Sistema Elétrico de Campo da Distribuição	3	14	7191	10786	PE	PM	Pouso Alegre
+58267	CHRISTOPHER MELO MENDES 	Téc. Gestão de Ativos da Distribuição	1	12	4548	6822	PE	PM	Varginha
+56317	Sandro de Castro Assis	Gerente	UN				PE	EA	Belo Horizonte
+47226	AFONSO VANDERLEI NUNES BARBOSA 	Eng. Projetos Expansão Alta Tensão da Distribuição	Sênior	17	14297	21445	PE	EA	Belo Horizonte
+52780	ANDRE LUIZ TEIXEIRA 	Eng. Projetos Expansão Alta Tensão da Distribuição	Sênior	17	14297	21445	PE	EA	Belo Horizonte
+53445	MAURICIO JOSE DE CASTILHO 	Eng. Projetos Expansão Alta Tensão da Distribuição	Sênior	17	14297	21445	PE	EA	Belo Horizonte
+53538	AFONSO FERREIRA AVILA 	Eng. Projetos Expansão Alta Tensão da Distribuição	Sênior	17	14297	21445	PE	EA	Belo Horizonte
+53608	WALLISSON FABRINI MENDES FURTADO 	Eng. Projetos Expansão Alta Tensão da Distribuição	Sênior	17	14297	21445	PE	EA	Belo Horizonte
+55138	IGOR EDUARDO DE LIMA NOGUEIRA 	Eng. Projetos Expansão Alta Tensão da Distribuição	Sênior	17	14297	21445	PE	EA	Belo Horizonte
+55211	LEANDRO MARCOS SANTOS 	Eng. Projetos Expansão Alta Tensão da Distribuição	Sênior	17	14297	21445	PE	EA	Belo Horizonte
+55506	MATEUS MARTINS COELHO 	Eng. Projetos Expansão Alta Tensão da Distribuição	Sênior	17	14297	21445	PE	EA	Belo Horizonte
+55535	SERGIO CARVALHO DE MELO 	Eng. Projetos Expansão Alta Tensão da Distribuição	Sênior	17	14297	21445	PE	EA	Belo Horizonte
+55888	CRISTIANO JOSE GONCALVES DA SILVA 	Eng. Projetos Expansão Alta Tensão da Distribuição	Sênior	17	14297	21445	PE	EA	Belo Horizonte
+55900	GERMANO RAMOS DE OLIVEIRA BRAGA 	Eng. Projetos Expansão Alta Tensão da Distribuição	Sênior	17	14297	21445	PE	EA	Belo Horizonte
+56164	FABRICIO TIAGO BORGES 	Eng. Projetos Expansão Alta Tensão da Distribuição	Sênior	17	14297	21445	PE	EA	Belo Horizonte
+56183	JUAREZ UBIRATAN SANCHES DE MEDEIROS	Eng. Projetos Expansão Alta Tensão da Distribuição	Sênior	17	14297	21445	PE	EA	Belo Horizonte
+56305	REGINALDO DE ALMEIDA SILVA 	Eng. Projetos Expansão Alta Tensão da Distribuição	Sênior	17	14297	21445	PE	EA	Belo Horizonte
+56991	ANDRE MATIAS NUNES TEIXEIRA 	Eng. Projetos Expansão Alta Tensão da Distribuição	Sênior	17	14297	21445	PE	EA	Belo Horizonte
+57095	MARIO VINICIUS REZENDE SILVA 	Eng. Projetos Expansão Alta Tensão da Distribuição	Sênior	17	14297	21445	PE	EA	Belo Horizonte
+57153	URSULA BARBOSA FERRAZ 	Eng. Projetos Expansão Alta Tensão da Distribuição	Sênior	17	14297	21445	PE	EA	Belo Horizonte
+54662	UBIRAJARA MARQUES DA CRUZ 	Eng. Projetos Expansão Alta Tensão da Distribuição	Pleno	16	11371	17056	PE	EA	Belo Horizonte
+55498	MARCIO FELIPE ARAUJO DE ALBERGARIA 	Eng. Projetos Expansão Alta Tensão da Distribuição	Pleno	16	11371	17056	PE	EA	Belo Horizonte
+55903	HENRIQUE CURATOLA NEVES 	Eng. Projetos Expansão Alta Tensão da Distribuição	Pleno	16	11371	17056	PE	EA	Belo Horizonte
+56378	DANIEL DE MELO ALEM 	Eng. Projetos Expansão Alta Tensão da Distribuição	Pleno	16	11371	17056	PE	EA	Belo Horizonte
+57079	LUCAS ALTOE ZANDONADI 	Eng. Projetos Expansão Alta Tensão da Distribuição	Pleno	16	11371	17056	PE	EA	Belo Horizonte
+57366	ROBERTO EDUARDO VITAL DOS SANTOS 	Eng. Projetos Expansão Alta Tensão da Distribuição	Pleno	16	11371	17056	PE	EA	Belo Horizonte
+59069	LUIS HENRIQUE ARAUJO VAZ 	Eng. Projetos Expansão Alta Tensão da Distribuição	Pleno	16	11371	17056	PE	EA	Belo Horizonte
+59046	DEBORA COELHO DE QUEIROZ 	Eng. Projetos Expansão Alta Tensão da Distribuição	Júnior	15	9043	13564	PE	EA	Belo Horizonte
+59762	JONATHAN SILVA DE OLIVEIRA 	Eng. Projetos Expansão Alta Tensão da Distribuição	Júnior	15	9043	13564	PE	EA	Belo Horizonte
+59981	EDMAR SALVADOR DA SILVA 	Eng. Projetos Expansão Alta Tensão da Distribuição	Júnior	15	9043	13564	PE	EA	Belo Horizonte
+60106	CARLOS EDUARDO SANTOS 	Eng. Projetos Expansão Alta Tensão da Distribuição	Júnior	15	9043	13564	PE	EA	Belo Horizonte
+60827	CAIO CESAR AGUILAR DE ALMEIDA 	Eng. Projetos Expansão Alta Tensão da Distribuição	Júnior	15	9043	13564	PE	EA	Belo Horizonte
+60916	FERNANDO AUGUSTO FLORES VILLACA 	Eng. Projetos Expansão Alta Tensão da Distribuição	Júnior	15	9043	13564	PE	EA	Belo Horizonte
+55884	AGNALDO JOSE SANTOS 	Eng. Estratégia Expansão e Manutenção AT Distribuição	Pleno	16	11371	17056	PE	EA	Belo Horizonte
+48462	ADINA LUIS DE SOUSA 	Analista Administrativo	Sênior	17	14297	21445	PE	EA	Belo Horizonte
+58263	CARLOS HENRIQUE FERNANDES DE SOUZA 	Téc. Projetos Expansão Alta Tensão da Distribuição	3	14	7191	10786	PE	EA	Belo Horizonte
+58206	ALEXANDRE SALES BRAZ JUNIOR 	Téc. Projetos Expansão Alta Tensão da Distribuição	2	13	5719	8579	PE	EA	Belo Horizonte
+58786	BRUNA SOUZA PINTO 	Téc. Projetos Expansão Alta Tensão da Distribuição	1	12	4548	6822	PE	EA	Belo Horizonte
+59975	CLEITON JUNIOR RODRIGUES DOS SANTOS	Téc. Projetos Expansão Alta Tensão da Distribuição	1	12	4548	6822	PE	EA	Belo Horizonte
+60264	EVALDO DO ESPIRITO SANTO JORGE 	Téc. Projetos Expansão Alta Tensão da Distribuição	1	12	4548	6822	PE	EA	Belo Horizonte
+60768	Caique Magalhaes Silva 	Téc. Projetos Expansão Alta Tensão da Distribuição	1	12	4548	6822	PE	EA	Belo Horizonte
+60177	PEDRO ALBERTO SOUSA GOMES 	Téc. Projetos Expansão Alta Tensão da Distribuição	1	12	4548	6822	PE	EA	Belo Horizonte
+60136	IGOR LUCIO LIMA DE SA 	Téc. Gestão de Ativos da Distribuição	1	12	4548	6822	PE	EA	Belo Horizonte
+57535	PRISCILA TEREZA DE OLIVEIRA GOMES 	Téc. Suporte e Gestão Expansão Alta Tensão	1	12	4548	6822	PE	EA	Belo Horizonte

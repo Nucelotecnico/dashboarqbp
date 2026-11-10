@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard QBP</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+if (typeof Chart === "undefined") {
+    document.write('<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"><\/script>');
+}
+</script>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<header>
+    <h1>Dashboard QBP </h1>
+    <br>
+    <h5><br>(Fonte:Página Web Pesquisa de empregados-cemigweb/empregados/index1.asp)<br>(Página Carreiras e oportunidades-Share Point) </h5>
+    <div class="header-actions">
+        <span id="statusOrigem" class="status-origem">Lendo colaboradores.txt...</span>
+        <button id="btnSelecionarArquivo" class="btn-carregar" style="display:none;" onclick="document.getElementById('inputArquivo').click()">Carregar colaboradores.txt</button>
+        <input type="file" id="inputArquivo" accept=".txt" style="display:none;">
+    </div>
+</header>
+
+<section class="filtros">
+
+    <select id="filtroGerencia">
+        <option value="">Todas as Gerências</option>
+    </select>
+
+    <select id="filtroCidade">
+        <option value="">Todas as Cidades</option>
+    </select>
+
+    <select id="filtroTipo">
+        <option value="">Todos os Tipos</option>
+        <option value="TECNICO">Técnicos</option>
+        <option value="ENGENHEIROS">Engenheiros</option>
+        <option value="LIDERANCAS">Lideranças</option>
+    </select>
+
+    <input
+        type="text"
+        id="pesquisa"
+        placeholder="Pesquisar colaborador..."
+    >
+
+</section>
+
+<section class="kpis">
+
+    <div class="card">
+        <h3>Total Colaboradores</h3>
+        <span id="totalColaboradores">0</span>
+    </div>
+
+    <div class="card">
+        <h3>Engenheiros</h3>
+        <span id="totalEngenheiros">0</span>
+    </div>
+
+    <div class="card">
+        <h3>Técnicos</h3>
+        <span id="totalTecnicos">0</span>
+    </div>
+
+    <div class="card">
+        <h3>Lideranças</h3>
+        <span id="totalLider">0</span>
+    </div>
+
+</section>
+
+<section class="graficos">
+
+    <div class="grafico full-width">
+        <h3>Colaboradores por Cargo</h3>
+        <div class="chart-wrapper">
+            <canvas id="cargoChart"></canvas>
+        </div>
+    </div>
+
+    <div class="grafico full-width">
+        <h3>Colaboradores por Cidade</h3>
+        <div class="chart-wrapper">
+            <canvas id="cidadeChart"></canvas>
+        </div>
+    </div>
+
+    <div class="grafico">
+        <h3>Distribuição por Nível</h3>
+        <div class="chart-wrapper">
+            <canvas id="nivelChart"></canvas>
+        </div>
+    </div>
+
+    <div class="grafico">
+        <h3>Distribuição por Faixa</h3>
+        <div class="chart-wrapper">
+            <canvas id="faixaChart"></canvas>
+        </div>
+    </div>
+
+</section>
+
+<section class="ranking">
+
+    <h2>Ranking de Cidades</h2>
+
+    <table id="rankingTabela">
+
+        <thead>
+            <tr>
+                <th>Cidade</th>
+                <th>Quantidade</th>
+            </tr>
+        </thead>
+
+        <tbody></tbody>
+
+    </table>
+
+</section>
+
+<section class="tabela">
+
+    <h2>Colaboradores</h2>
+
+    <table id="colaboradores">
+
+        <thead>
+
+        <tr>
+            <th>Matrícula</th>
+            <th>Nome</th>
+            <th>Cargo</th>
+            <th>Nível</th>
+            <th>Faixa</th>
+            <th>Cidade</th>
+            <th>Gerência</th>
+        </tr>
+
+        </thead>
+
+        <tbody></tbody>
+
+    </table>
+
+</section>
+
+
+<script src="dados.js"></script>
+<script src="app.js"></script>
+
+</body>
+
+</html>
