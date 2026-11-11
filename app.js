@@ -132,18 +132,115 @@ function obterTipoColaborador(cargo){
     return "OUTROS";
 }
 
+function toggleDropdown(containerId, event){
+    if (event) event.stopPropagation();
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    const jaAberto = container.classList.contains("open");
+    fecharTodosDropdowns();
+    if (!jaAberto) {
+        container.classList.add("open");
+    }
+}
+window.toggleDropdown = toggleDropdown;
+
+function fecharTodosDropdowns(){
+    document.querySelectorAll(".multiselect-container").forEach(c => c.classList.remove("open"));
+}
+window.fecharTodosDropdowns = fecharTodosDropdowns;
+
+function alternarTodosGrupo(classeCheck, checkPrincipal, idLabel, textoPadrao, sufixoPlural){
+    const checkboxes = document.querySelectorAll(`.${classeCheck}`);
+    checkboxes.forEach(chk => {
+        chk.checked = checkPrincipal.checked;
+    });
+    atualizarLabelGrupo(classeCheck, checkPrincipal.id, idLabel, textoPadrao, sufixoPlural);
+    if (classeCheck === "check-tipo") {
+        atualizarFiltroCargos();
+    }
+    aplicarFiltros();
+}
+window.alternarTodosGrupo = alternarTodosGrupo;
+
+function aoMudarOpcao(classeCheck, idCheckPrincipal, idLabel, textoPadrao, sufixoPlural){
+    atualizarLabelGrupo(classeCheck, idCheckPrincipal, idLabel, textoPadrao, sufixoPlural);
+    if (classeCheck === "check-tipo") {
+        atualizarFiltroCargos();
+    }
+    aplicarFiltros();
+}
+window.aoMudarOpcao = aoMudarOpcao;
+
+function atualizarLabelGrupo(classeCheck, idCheckPrincipal, idLabel, textoPadrao, sufixoPlural){
+    const checkPrincipal = document.getElementById(idCheckPrincipal);
+    const checkboxes = Array.from(document.querySelectorAll(`.${classeCheck}`));
+    const selecionados = checkboxes.filter(chk => chk.checked);
+    const label = document.getElementById(idLabel);
+
+    if (checkboxes.length > 0 && selecionados.length === checkboxes.length) {
+        if (checkPrincipal) {
+            checkPrincipal.checked = true;
+            checkPrincipal.indeterminate = false;
+        }
+        if (label) label.textContent = textoPadrao;
+    } else if (selecionados.length === 0) {
+        if (checkPrincipal) {
+            checkPrincipal.checked = false;
+            checkPrincipal.indeterminate = false;
+        }
+        if (label) label.textContent = "Nenhum selecionado";
+    } else {
+        if (checkPrincipal) {
+            checkPrincipal.checked = false;
+            checkPrincipal.indeterminate = true;
+        }
+        if (label) {
+            if (selecionados.length === 1) {
+                const span = selecionados[0].closest(".multiselect-item")?.querySelector("span");
+                label.textContent = span ? span.textContent.trim() : selecionados[0].value;
+            } else if (selecionados.length === 2) {
+                const s1 = selecionados[0].closest(".multiselect-item")?.querySelector("span")?.textContent.trim() || selecionados[0].value;
+                const s2 = selecionados[1].closest(".multiselect-item")?.querySelector("span")?.textContent.trim() || selecionados[1].value;
+                label.textContent = `${s1}, ${s2}`;
+            } else {
+                label.textContent = `${selecionados.length} ${sufixoPlural}`;
+            }
+        }
+    }
+}
+window.atualizarLabelGrupo = atualizarLabelGrupo;
+
+function obterValoresSelecionados(classeCheck){
+    const checkboxes = Array.from(document.querySelectorAll(`.${classeCheck}`));
+    if (checkboxes.length === 0) return { todos: true, lista: [] };
+    const selecionados = checkboxes.filter(chk => chk.checked).map(chk => chk.value.trim());
+
+    // Se todos estiverem marcados, considera todos selecionados (sem restrição)
+    if (selecionados.length === checkboxes.length) {
+        return { todos: true, lista: [] };
+    }
+    // Se nenhum estiver marcado, lista vazia
+    if (selecionados.length === 0) {
+        return { todos: false, lista: [] };
+    }
+    return { todos: false, lista: selecionados };
+}
+
 function configurarEventos(){
     const inputPesquisa = document.getElementById("pesquisa");
-    const selectGerencia = document.getElementById("filtroGerencia");
-    const selectCidade = document.getElementById("filtroCidade");
-    const selectTipo = document.getElementById("filtroTipo");
+    if (inputPesquisa) {
+        inputPesquisa.addEventListener("input", aplicarFiltros);
+        inputPesquisa.addEventListener("keyup", aplicarFiltros);
+    }
+
+    // Fecha os dropdowns ao clicar fora
+    document.addEventListener("click", (e) => {
+        if (!e.target.closest(".multiselect-container")) {
+            fecharTodosDropdowns();
+        }
+    });
+
     const inputArquivo = document.getElementById("inputArquivo");
-
-    if (inputPesquisa) inputPesquisa.addEventListener("keyup", aplicarFiltros);
-    if (selectGerencia) selectGerencia.addEventListener("change", aplicarFiltros);
-    if (selectCidade) selectCidade.addEventListener("change", aplicarFiltros);
-    if (selectTipo) selectTipo.addEventListener("change", aplicarFiltros);
-
     if (inputArquivo) {
         inputArquivo.addEventListener("change", (e) => {
             const arquivo = e.target.files && e.target.files[0];
@@ -168,49 +265,128 @@ function configurarEventos(){
     }
 }
 
+function atualizarFiltroCargos(){
+    const listaCargosContainer = document.getElementById("listaOpcoesCargo");
+    if (!listaCargosContainer) return;
+
+    const selTipos = obterValoresSelecionados("check-tipo");
+    const checkboxesAnteriores = Array.from(document.querySelectorAll(".check-cargo:checked")).map(c => c.value.trim());
+    const tinhaCargos = document.querySelectorAll(".check-cargo").length > 0;
+
+    let colaboradoresFiltradosPorTipo = listaColaboradores;
+    if (!selTipos.todos) {
+        colaboradoresFiltradosPorTipo = listaColaboradores.filter(c =>
+            selTipos.lista.includes(obterTipoColaborador(c.cargo))
+        );
+    }
+
+    const cargosDisponiveis = [...new Set(
+        colaboradoresFiltradosPorTipo.map(c => (c.cargo || "").trim()).filter(Boolean)
+    )].sort();
+
+    listaCargosContainer.innerHTML = cargosDisponiveis.map(c => {
+        // Na inicialização todos os cargos vêm marcados; nas interações preserva seleção anterior se aplicável
+        const checked = (!tinhaCargos || checkboxesAnteriores.includes(c)) ? "checked" : "";
+        return `
+            <label class="multiselect-item">
+                <input type="checkbox" value="${c}" class="check-cargo" ${checked} onchange="aoMudarOpcao('check-cargo', 'checkTodosCargos', 'labelCargo', 'Todos os Cargos', 'cargos')">
+                <span>${c}</span>
+            </label>
+        `;
+    }).join("");
+
+    atualizarLabelGrupo("check-cargo", "checkTodosCargos", "labelCargo", "Todos os Cargos", "cargos");
+}
+window.atualizarFiltroCargos = atualizarFiltroCargos;
+
 function carregarFiltros(){
-    const gerencias = [...new Set(listaColaboradores.map(c => c.gerencia).filter(Boolean))].sort();
-    const cidades = [...new Set(listaColaboradores.map(c => c.cidade).filter(Boolean))].sort();
+    const gerencias = [...new Set(listaColaboradores.map(c => (c.gerencia || "").trim()).filter(Boolean))].sort();
+    const cidades = [...new Set(listaColaboradores.map(c => (c.cidade || "").trim()).filter(Boolean))].sort();
 
-    const selectGerencia = document.getElementById("filtroGerencia");
-    const selectCidade = document.getElementById("filtroCidade");
+    // 1. Gerências - todos marcados na inicialização
+    const listaGerencias = document.getElementById("listaOpcoesGerencia");
+    if (listaGerencias) {
+        listaGerencias.innerHTML = gerencias.map(g => `
+            <label class="multiselect-item">
+                <input type="checkbox" value="${g}" class="check-gerencia" checked onchange="aoMudarOpcao('check-gerencia', 'checkTodasGerencias', 'labelGerencia', 'Todas as Gerências', 'gerências')">
+                <span>${g}</span>
+            </label>
+        `).join("");
+    }
+    const checkTodasGer = document.getElementById("checkTodasGerencias");
+    if (checkTodasGer) { checkTodasGer.checked = true; checkTodasGer.indeterminate = false; }
+    atualizarLabelGrupo("check-gerencia", "checkTodasGerencias", "labelGerencia", "Todas as Gerências", "gerências");
 
-    if (selectGerencia) {
-        selectGerencia.innerHTML = '<option value="">Todas as Gerências</option>' +
-            gerencias.map(g => `<option value="${g}">${g}</option>`).join("");
+    // 2. Cidades - todos marcados na inicialização
+    const listaCidades = document.getElementById("listaOpcoesCidade");
+    if (listaCidades) {
+        listaCidades.innerHTML = cidades.map(c => `
+            <label class="multiselect-item">
+                <input type="checkbox" value="${c}" class="check-cidade" checked onchange="aoMudarOpcao('check-cidade', 'checkTodasCidades', 'labelCidade', 'Todas as Cidades', 'cidades')">
+                <span>${c}</span>
+            </label>
+        `).join("");
     }
-    if (selectCidade) {
-        selectCidade.innerHTML = '<option value="">Todas as Cidades</option>' +
-            cidades.map(c => `<option value="${c}">${c}</option>`).join("");
-    }
+    const checkTodasCid = document.getElementById("checkTodasCidades");
+    if (checkTodasCid) { checkTodasCid.checked = true; checkTodasCid.indeterminate = false; }
+    atualizarLabelGrupo("check-cidade", "checkTodasCidades", "labelCidade", "Todas as Cidades", "cidades");
+
+    // 3. Tipos - todos marcados na inicialização
+    const checkTodosTip = document.getElementById("checkTodosTipos");
+    if (checkTodosTip) { checkTodosTip.checked = true; checkTodosTip.indeterminate = false; }
+    document.querySelectorAll(".check-tipo").forEach(chk => { chk.checked = true; });
+    atualizarLabelGrupo("check-tipo", "checkTodosTipos", "labelTipo", "Todos os Tipos", "tipos");
+
+    // 4. Cargos - todos marcados na inicialização
+    atualizarFiltroCargos();
+}
+
+function normalizarTexto(txt){
+    return (txt || "")
+        .toString()
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[̀-ͯ]/g, "")
+        .trim();
 }
 
 function aplicarFiltros(){
-    const gerencia = document.getElementById("filtroGerencia") ? document.getElementById("filtroGerencia").value : "";
-    const cidade = document.getElementById("filtroCidade") ? document.getElementById("filtroCidade").value : "";
-    const tipo = document.getElementById("filtroTipo") ? document.getElementById("filtroTipo").value : "";
-    const texto = document.getElementById("pesquisa") ? document.getElementById("pesquisa").value.toLowerCase().trim() : "";
+    const selGerencias = obterValoresSelecionados("check-gerencia");
+    const selCidades = obterValoresSelecionados("check-cidade");
+    const selTipos = obterValoresSelecionados("check-tipo");
+    const selCargos = obterValoresSelecionados("check-cargo");
+    const elPesquisa = document.getElementById("pesquisa");
+    const texto = elPesquisa ? normalizarTexto(elPesquisa.value) : "";
 
     dadosFiltrados = listaColaboradores.filter(item => {
-        const filtroGerencia = !gerencia || item.gerencia === gerencia;
-        const filtroCidade = !cidade || item.cidade === cidade;
-        const filtroTipo = !tipo || obterTipoColaborador(item.cargo) === tipo;
-        const filtroPesquisa = !texto ||
-            (item.nome || "").toLowerCase().includes(texto) ||
-            (item.cargo || "").toLowerCase().includes(texto) ||
-            (item.matricula || "").toString().toLowerCase().includes(texto);
+        const itemGerencia = (item.gerencia || "").trim();
+        const itemCidade = (item.cidade || "").trim();
+        const itemCargo = (item.cargo || "").trim();
+        const itemTipo = obterTipoColaborador(itemCargo);
 
-        return filtroGerencia && filtroCidade && filtroTipo && filtroPesquisa;
+        const filtroGerencia = selGerencias.todos ? true : selGerencias.lista.includes(itemGerencia);
+        const filtroCidade = selCidades.todos ? true : selCidades.lista.includes(itemCidade);
+        const filtroTipo = selTipos.todos ? true : selTipos.lista.includes(itemTipo);
+        const filtroCargo = selCargos.todos ? true : selCargos.lista.includes(itemCargo);
+        const filtroPesquisa = !texto ||
+            normalizarTexto(item.nome).includes(texto) ||
+            normalizarTexto(itemCargo).includes(texto) ||
+            normalizarTexto(item.matricula).includes(texto) ||
+            normalizarTexto(itemCidade).includes(texto) ||
+            normalizarTexto(itemGerencia).includes(texto);
+
+        return filtroGerencia && filtroCidade && filtroTipo && filtroCargo && filtroPesquisa;
     });
 
     atualizarDashboard();
 }
+window.aplicarFiltros = aplicarFiltros;
 
 function atualizarDashboard(){
-    atualizarKPIs();
-    atualizarTabela();
-    atualizarRanking();
-    atualizarGraficos();
+    try { atualizarKPIs(); } catch(e){ console.error("Erro ao atualizar KPIs:", e); }
+    try { atualizarTabela(); } catch(e){ console.error("Erro ao atualizar Tabela:", e); }
+    try { atualizarRanking(); } catch(e){ console.error("Erro ao atualizar Ranking:", e); }
+    try { atualizarGraficos(); } catch(e){ console.error("Erro ao atualizar Gráficos:", e); }
 }
 
 function atualizarKPIs(){
@@ -356,68 +532,103 @@ function renderizarGraficoFallback(canvasId, dadosObj, corPadrao){
 const pluginValoresNoTopo = {
     id: "valoresNoTopo",
     afterDatasetsDraw(chart) {
-        const { ctx } = chart;
-        const isHorizontal = chart.options.indexAxis === "y";
-        const pluginOpts = chart.options.plugins?.valoresNoTopo || {};
-        const exibirPercentual = !!pluginOpts.exibirPercentual;
+        try {
+            const { ctx } = chart;
+            const isHorizontal = chart.options.indexAxis === "y";
+            const pluginOpts = chart.options.plugins?.valoresNoTopo || {};
+            const exibirPercentual = !!pluginOpts.exibirPercentual;
 
-        ctx.save();
-        chart.data.datasets.forEach((dataset, datasetIndex) => {
-            const meta = chart.getDatasetMeta(datasetIndex);
-            if (meta.hidden) return;
+            ctx.save();
+            chart.data.datasets.forEach((dataset, datasetIndex) => {
+                const meta = chart.getDatasetMeta(datasetIndex);
+                if (!meta || meta.hidden || !Array.isArray(meta.data)) return;
 
-            const total = dataset.data.reduce((acc, v) => acc + (Number(v) || 0), 0);
+                const total = (dataset.data || []).reduce((acc, v) => acc + (Number(v) || 0), 0);
 
-            meta.data.forEach((element, index) => {
-                const valor = dataset.data[index];
-                if (valor === undefined || valor === null || valor === "") return;
+                meta.data.forEach((element, index) => {
+                    if (!element || typeof element.x !== "number" || typeof element.y !== "number" || isNaN(element.x) || isNaN(element.y)) return;
 
-                const perc = total > 0 ? ((Number(valor) / total) * 100).toFixed(1).replace(".", ",") + "%" : "0%";
+                    const valor = dataset.data[index];
+                    if (valor === undefined || valor === null || valor === "") return;
 
-                if (isHorizontal) {
-                    // Barra horizontal: valor à direita da ponta externa da barra
-                    ctx.textAlign = "left";
-                    ctx.textBaseline = "middle";
-                    const x = element.x + 6;
-                    const y = element.y;
+                    const perc = total > 0 ? ((Number(valor) / total) * 100).toFixed(1).replace(".", ",") + "%" : "0%";
 
-                    if (exibirPercentual) {
-                        ctx.fillStyle = "#2c3e50";
-                        ctx.font = "bold 11px 'Segoe UI', Arial, sans-serif";
-                        ctx.fillText(`${valor} (${perc})`, x, y);
+                    if (isHorizontal) {
+                        // Barra horizontal: valor à direita da ponta externa da barra
+                        ctx.textAlign = "left";
+                        ctx.textBaseline = "middle";
+                        const x = element.x + 6;
+                        const y = element.y;
+
+                        if (exibirPercentual) {
+                            ctx.fillStyle = "#2c3e50";
+                            ctx.font = "bold 11px 'Segoe UI', Arial, sans-serif";
+                            ctx.fillText(`${valor} (${perc})`, x, y);
+                        } else {
+                            ctx.fillStyle = "#2c3e50";
+                            ctx.font = "bold 11px 'Segoe UI', Arial, sans-serif";
+                            ctx.fillText(valor, x, y);
+                        }
                     } else {
-                        ctx.fillStyle = "#2c3e50";
-                        ctx.font = "bold 11px 'Segoe UI', Arial, sans-serif";
-                        ctx.fillText(valor, x, y);
-                    }
-                } else {
-                    // Barra vertical: valor no topo externo da barra
-                    ctx.textAlign = "center";
-                    ctx.textBaseline = "bottom";
-                    const x = element.x;
-                    const y = element.y - 4;
+                        // Barra vertical: valor no topo externo da barra
+                        ctx.textAlign = "center";
+                        ctx.textBaseline = "bottom";
+                        const x = element.x;
+                        const y = element.y - 4;
 
-                    if (exibirPercentual) {
-                        // Linha 1: Valor absoluto (em negrito)
-                        ctx.fillStyle = "#2c3e50";
-                        ctx.font = "bold 11px 'Segoe UI', Arial, sans-serif";
-                        ctx.fillText(valor, x, y - 14);
+                        if (exibirPercentual) {
+                            // Linha 1: Valor absoluto (em negrito)
+                            ctx.fillStyle = "#2c3e50";
+                            ctx.font = "bold 11px 'Segoe UI', Arial, sans-serif";
+                            ctx.fillText(valor, x, y - 14);
 
-                        // Linha 2: Percentual (em cinza médio)
-                        ctx.fillStyle = "#636e72";
-                        ctx.font = "600 10px 'Segoe UI', Arial, sans-serif";
-                        ctx.fillText(`(${perc})`, x, y);
-                    } else {
-                        ctx.fillStyle = "#2c3e50";
-                        ctx.font = "bold 11px 'Segoe UI', Arial, sans-serif";
-                        ctx.fillText(valor, x, y);
+                            // Linha 2: Percentual (em cinza médio)
+                            ctx.fillStyle = "#636e72";
+                            ctx.font = "600 10px 'Segoe UI', Arial, sans-serif";
+                            ctx.fillText(`(${perc})`, x, y);
+                        } else {
+                            ctx.fillStyle = "#2c3e50";
+                            ctx.font = "bold 11px 'Segoe UI', Arial, sans-serif";
+                            ctx.fillText(valor, x, y);
+                        }
                     }
-                }
+                });
             });
-        });
-        ctx.restore();
+            ctx.restore();
+        } catch (err) {
+            console.warn("Erro no plugin valoresNoTopo:", err);
+        }
     }
 };
+
+function renderizarGrafico(instanciaAtual, canvasId, config){
+    try {
+        if (instanciaAtual) {
+            try { instanciaAtual.destroy(); } catch(e){}
+        }
+        const canvasAntigo = document.getElementById(canvasId);
+        if (!canvasAntigo) return null;
+        try {
+            const existente = Chart.getChart(canvasAntigo);
+            if (existente) existente.destroy();
+        } catch(e){}
+
+        // Substitui o canvas por um elemento limpo no DOM para evitar qualquer conflito
+        const pai = canvasAntigo.parentElement;
+        if (!pai) return null;
+        const novoCanvas = document.createElement("canvas");
+        novoCanvas.id = canvasId;
+        pai.replaceChild(novoCanvas, canvasAntigo);
+
+        if (!config.options) config.options = {};
+        config.options.animation = false;
+
+        return new Chart(novoCanvas, config);
+    } catch(err) {
+        console.error("Erro ao renderizar gráfico " + canvasId + ":", err);
+        return null;
+    }
+}
 
 function atualizarGraficos(){
     const cargos = contar("cargo");
@@ -445,50 +656,43 @@ function atualizarGraficos(){
             canvasCargo.parentElement.style.height = `${alturaCargo}px`;
         }
 
-        if (cargoChart) {
-            cargoChart.data.labels = labelsCargo;
-            cargoChart.data.datasets[0].data = valoresCargo;
-            cargoChart.resize();
-            cargoChart.update();
-        } else {
-            cargoChart = new Chart(canvasCargo, {
-                type: "bar",
-                data: {
-                    labels: labelsCargo,
-                    datasets: [{
-                        label: "Quantidade",
-                        data: valoresCargo,
-                        backgroundColor: "#0078d4",
-                        borderRadius: 4
-                    }]
+        cargoChart = renderizarGrafico(cargoChart, "cargoChart", {
+            type: "bar",
+            data: {
+                labels: labelsCargo,
+                datasets: [{
+                    label: "Quantidade",
+                    data: valoresCargo,
+                    backgroundColor: "#0078d4",
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                indexAxis: "y",
+                responsive: true,
+                maintainAspectRatio: false,
+                layout: {
+                    padding: { right: 35, top: 10, bottom: 10 }
                 },
-                options: {
-                    indexAxis: "y",
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    layout: {
-                        padding: { right: 35, top: 10, bottom: 10 }
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        grace: "12%",
+                        ticks: { precision: 0 }
                     },
-                    plugins: {
-                        legend: { display: false }
-                    },
-                    scales: {
-                        x: {
-                            beginAtZero: true,
-                            grace: "12%",
-                            ticks: { precision: 0 }
-                        },
-                        y: {
-                            ticks: {
-                                autoSkip: false,
-                                font: { size: 12 }
-                            }
+                    y: {
+                        ticks: {
+                            autoSkip: false,
+                            font: { size: 12 }
                         }
                     }
-                },
-                plugins: [pluginValoresNoTopo]
-            });
-        }
+                }
+            },
+            plugins: [pluginValoresNoTopo]
+        });
     }
 
     // 2. Gráfico de Cidades (Eixos Invertidos: Barras Horizontais com altura dinâmica)
@@ -503,50 +707,43 @@ function atualizarGraficos(){
             canvasCidade.parentElement.style.height = `${alturaCidade}px`;
         }
 
-        if (cidadeChart) {
-            cidadeChart.data.labels = labelsCidade;
-            cidadeChart.data.datasets[0].data = valoresCidade;
-            cidadeChart.resize();
-            cidadeChart.update();
-        } else {
-            cidadeChart = new Chart(canvasCidade, {
-                type: "bar",
-                data: {
-                    labels: labelsCidade,
-                    datasets: [{
-                        label: "Quantidade",
-                        data: valoresCidade,
-                        backgroundColor: "#e17055",
-                        borderRadius: 4
-                    }]
+        cidadeChart = renderizarGrafico(cidadeChart, "cidadeChart", {
+            type: "bar",
+            data: {
+                labels: labelsCidade,
+                datasets: [{
+                    label: "Quantidade",
+                    data: valoresCidade,
+                    backgroundColor: "#e17055",
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                indexAxis: "y",
+                responsive: true,
+                maintainAspectRatio: false,
+                layout: {
+                    padding: { right: 35, top: 10, bottom: 10 }
                 },
-                options: {
-                    indexAxis: "y",
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    layout: {
-                        padding: { right: 35, top: 10, bottom: 10 }
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        grace: "12%",
+                        ticks: { precision: 0 }
                     },
-                    plugins: {
-                        legend: { display: false }
-                    },
-                    scales: {
-                        x: {
-                            beginAtZero: true,
-                            grace: "12%",
-                            ticks: { precision: 0 }
-                        },
-                        y: {
-                            ticks: {
-                                autoSkip: false,
-                                font: { size: 12 }
-                            }
+                    y: {
+                        ticks: {
+                            autoSkip: false,
+                            font: { size: 12 }
                         }
                     }
-                },
-                plugins: [pluginValoresNoTopo]
-            });
-        }
+                }
+            },
+            plugins: [pluginValoresNoTopo]
+        });
     }
 
     // 3. Gráfico de Níveis (Barras com Valor Absoluto e Percentual)
@@ -555,55 +752,49 @@ function atualizarGraficos(){
         const labelsNivel = Object.keys(niveis);
         const valoresNivel = Object.values(niveis);
 
-        if (nivelChart) {
-            nivelChart.data.labels = labelsNivel;
-            nivelChart.data.datasets[0].data = valoresNivel;
-            nivelChart.update();
-        } else {
-            nivelChart = new Chart(canvasNivel, {
-                type: "bar",
-                data: {
-                    labels: labelsNivel,
-                    datasets: [{
-                        label: "Quantidade",
-                        data: valoresNivel,
-                        backgroundColor: "#6c5ce7",
-                        borderRadius: 4
-                    }]
+        nivelChart = renderizarGrafico(nivelChart, "nivelChart", {
+            type: "bar",
+            data: {
+                labels: labelsNivel,
+                datasets: [{
+                    label: "Quantidade",
+                    data: valoresNivel,
+                    backgroundColor: "#6c5ce7",
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                layout: {
+                    padding: { top: 32 }
                 },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    layout: {
-                        padding: { top: 32 }
+                plugins: {
+                    legend: { display: false },
+                    valoresNoTopo: {
+                        exibirPercentual: true
                     },
-                    plugins: {
-                        legend: { display: false },
-                        valoresNoTopo: {
-                            exibirPercentual: true
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    const val = Number(context.raw) || 0;
-                                    const total = context.dataset.data.reduce((a, b) => a + (Number(b) || 0), 0);
-                                    const perc = total > 0 ? ((val / total) * 100).toFixed(1).replace(".", ",") + "%" : "0%";
-                                    return ` Colaboradores: ${val} (${perc})`;
-                                }
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const val = Number(context.raw) || 0;
+                                const total = context.dataset.data.reduce((a, b) => a + (Number(b) || 0), 0);
+                                const perc = total > 0 ? ((val / total) * 100).toFixed(1).replace(".", ",") + "%" : "0%";
+                                return ` Colaboradores: ${val} (${perc})`;
                             }
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            grace: "18%",
-                            ticks: { precision: 0 }
                         }
                     }
                 },
-                plugins: [pluginValoresNoTopo]
-            });
-        }
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grace: "18%",
+                        ticks: { precision: 0 }
+                    }
+                }
+            },
+            plugins: [pluginValoresNoTopo]
+        });
     }
 
     // 4. Gráfico de Faixas (Barras com Início e Fim entre parênteses no eixo X)
@@ -619,60 +810,54 @@ function atualizarGraficos(){
         const labelsFaixa = chavesFaixas.map(f => obterRotuloFaixa(f));
         const valoresFaixa = chavesFaixas.map(f => faixas[f]);
 
-        if (faixaChart) {
-            faixaChart.data.labels = labelsFaixa;
-            faixaChart.data.datasets[0].data = valoresFaixa;
-            faixaChart.update();
-        } else {
-            faixaChart = new Chart(canvasFaixa, {
-                type: "bar",
-                data: {
-                    labels: labelsFaixa,
-                    datasets: [{
-                        label: "Quantidade",
-                        data: valoresFaixa,
-                        backgroundColor: "#00b894",
-                        borderRadius: 4
-                    }]
+        faixaChart = renderizarGrafico(faixaChart, "faixaChart", {
+            type: "bar",
+            data: {
+                labels: labelsFaixa,
+                datasets: [{
+                    label: "Quantidade",
+                    data: valoresFaixa,
+                    backgroundColor: "#00b894",
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                layout: {
+                    padding: { top: 25 }
                 },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    layout: {
-                        padding: { top: 25 }
-                    },
-                    plugins: {
-                        legend: { display: false },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    const val = context.raw || 0;
-                                    const total = context.dataset.data.reduce((a, b) => a + (Number(b) || 0), 0);
-                                    const perc = total > 0 ? ((val / total) * 100).toFixed(1).replace(".", ",") + "%" : "0%";
-                                    return ` Colaboradores: ${val} (${perc})`;
-                                }
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const val = context.raw || 0;
+                                const total = context.dataset.data.reduce((a, b) => a + (Number(b) || 0), 0);
+                                const perc = total > 0 ? ((val / total) * 100).toFixed(1).replace(".", ",") + "%" : "0%";
+                                return ` Colaboradores: ${val} (${perc})`;
                             }
-                        }
-                    },
-                    scales: {
-                        x: {
-                            ticks: {
-                                font: { size: 11, weight: "600" },
-                                autoSkip: false,
-                                maxRotation: 25,
-                                minRotation: 0
-                            }
-                        },
-                        y: {
-                            beginAtZero: true,
-                            grace: "12%",
-                            ticks: { precision: 0 }
                         }
                     }
                 },
-                plugins: [pluginValoresNoTopo]
-            });
-        }
+                scales: {
+                    x: {
+                        ticks: {
+                            font: { size: 11, weight: "600" },
+                            autoSkip: false,
+                            maxRotation: 25,
+                            minRotation: 0
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        grace: "12%",
+                        ticks: { precision: 0 }
+                    }
+                }
+            },
+            plugins: [pluginValoresNoTopo]
+        });
     }
 }
 

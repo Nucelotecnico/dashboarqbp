@@ -31,20 +31,82 @@ if (typeof Chart === "undefined") {
 
 <section class="filtros">
 
-    <select id="filtroGerencia" onchange="aplicarFiltros()">
-        <option value="">Todas as Gerências</option>
-    </select>
+    <!-- Filtro Gerências -->
+    <div class="multiselect-container" id="containerGerencia">
+        <button type="button" class="multiselect-btn" id="btnGerencia" onclick="toggleDropdown('containerGerencia', event)">
+            <span class="multiselect-label" id="labelGerencia">Todas as Gerências</span>
+            <span class="multiselect-arrow">▾</span>
+        </button>
+        <div class="multiselect-dropdown" id="dropdownGerencia">
+            <label class="multiselect-item">
+                <input type="checkbox" id="checkTodasGerencias" checked onchange="alternarTodosGrupo('check-gerencia', this, 'labelGerencia', 'Todas as Gerências', 'gerências')">
+                <span><strong>Todas as Gerências</strong></span>
+            </label>
+            <div class="multiselect-divider"></div>
+            <div id="listaOpcoesGerencia"></div>
+        </div>
+    </div>
 
-    <select id="filtroCidade" onchange="aplicarFiltros()">
-        <option value="">Todas as Cidades</option>
-    </select>
+    <!-- Filtro Cidades -->
+    <div class="multiselect-container" id="containerCidade">
+        <button type="button" class="multiselect-btn" id="btnCidade" onclick="toggleDropdown('containerCidade', event)">
+            <span class="multiselect-label" id="labelCidade">Todas as Cidades</span>
+            <span class="multiselect-arrow">▾</span>
+        </button>
+        <div class="multiselect-dropdown" id="dropdownCidade">
+            <label class="multiselect-item">
+                <input type="checkbox" id="checkTodasCidades" checked onchange="alternarTodosGrupo('check-cidade', this, 'labelCidade', 'Todas as Cidades', 'cidades')">
+                <span><strong>Todas as Cidades</strong></span>
+            </label>
+            <div class="multiselect-divider"></div>
+            <div id="listaOpcoesCidade"></div>
+        </div>
+    </div>
 
-    <select id="filtroTipo" onchange="aplicarFiltros()">
-        <option value="">Todos os Tipos</option>
-        <option value="TECNICO">Técnicos</option>
-        <option value="ENGENHEIROS">Engenheiros</option>
-        <option value="LIDERANCAS">Lideranças</option>
-    </select>
+    <!-- Filtro Tipos -->
+    <div class="multiselect-container" id="containerTipo">
+        <button type="button" class="multiselect-btn" id="btnTipo" onclick="toggleDropdown('containerTipo', event)">
+            <span class="multiselect-label" id="labelTipo">Todos os Tipos</span>
+            <span class="multiselect-arrow">▾</span>
+        </button>
+        <div class="multiselect-dropdown" id="dropdownTipo">
+            <label class="multiselect-item">
+                <input type="checkbox" id="checkTodosTipos" checked onchange="alternarTodosGrupo('check-tipo', this, 'labelTipo', 'Todos os Tipos', 'tipos')">
+                <span><strong>Todos os Tipos</strong></span>
+            </label>
+            <div class="multiselect-divider"></div>
+            <div id="listaOpcoesTipo">
+                <label class="multiselect-item">
+                    <input type="checkbox" value="TECNICO" class="check-tipo" checked onchange="aoMudarOpcao('check-tipo', 'checkTodosTipos', 'labelTipo', 'Todos os Tipos', 'tipos')">
+                    <span>Técnicos</span>
+                </label>
+                <label class="multiselect-item">
+                    <input type="checkbox" value="ENGENHEIROS" class="check-tipo" checked onchange="aoMudarOpcao('check-tipo', 'checkTodosTipos', 'labelTipo', 'Todos os Tipos', 'tipos')">
+                    <span>Engenheiros</span>
+                </label>
+                <label class="multiselect-item">
+                    <input type="checkbox" value="LIDERANCAS" class="check-tipo" checked onchange="aoMudarOpcao('check-tipo', 'checkTodosTipos', 'labelTipo', 'Todos os Tipos', 'tipos')">
+                    <span>Lideranças</span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filtro Cargos -->
+    <div class="multiselect-container" id="containerCargo">
+        <button type="button" class="multiselect-btn" id="btnCargo" onclick="toggleDropdown('containerCargo', event)">
+            <span class="multiselect-label" id="labelCargo">Todos os Cargos</span>
+            <span class="multiselect-arrow">▾</span>
+        </button>
+        <div class="multiselect-dropdown" id="dropdownCargo">
+            <label class="multiselect-item">
+                <input type="checkbox" id="checkTodosCargos" checked onchange="alternarTodosGrupo('check-cargo', this, 'labelCargo', 'Todos os Cargos', 'cargos')">
+                <span><strong>Todos os Cargos</strong></span>
+            </label>
+            <div class="multiselect-divider"></div>
+            <div id="listaOpcoesCargo"></div>
+        </div>
+    </div>
 
     <input
         type="text"
@@ -95,14 +157,14 @@ if (typeof Chart === "undefined") {
         </div>
     </div>
 
-    <div class="grafico">
+    <div class="grafico full-width">
         <h3>Distribuição por Nível</h3>
         <div class="chart-wrapper">
             <canvas id="nivelChart"></canvas>
         </div>
     </div>
 
-    <div class="grafico">
+    <div class="grafico full-width">
         <h3>Distribuição por Faixa</h3>
         <div class="chart-wrapper">
             <canvas id="faixaChart"></canvas>
